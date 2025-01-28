@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/component/navbar";
 import { Ubuntu } from "next/font/google";
+import Navbar from "@/components/Navbar";
 
 const ubuntu = Ubuntu({
   weight : '400', 
@@ -24,6 +23,7 @@ export default function RootLayout({
       <body
         className={`${ubuntu.className} w-full antialiased bg-white `}
       >
+        <Navbar/>
         {children}
       </body>
     </html>

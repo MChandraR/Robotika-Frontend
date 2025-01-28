@@ -5,8 +5,6 @@ import { GedungA , Banner1} from "@/assets/images/background";
 import { LogoRobotika, LogoUmrah} from "@/assets/images/logo";
 import { Robot, ArrowRight } from "@/assets/images/icon";
 import { GoChevronRight, GoChevronLeft  } from "react-icons/go";
-import Link from "next/link";
-import { useEffect, useState } from "react";
 //Data 
 import feature from "@/data/fitur";
 import divisi from "@/data/divisi";
@@ -15,41 +13,9 @@ import Footer from "@/components/Footer";
 
 
 export default function Home() {
-  const [bgColor, setBgColor] = useState("bg-transparent");
-  
-  const handleScroll = () => {
-      const scrollPosition = window.scrollY; // Mendapatkan posisi scroll
-      if (scrollPosition > 200) { // Ganti nilai ini sesuai kebutuhan
-      setBgColor("bg-darkerBlue");
-      } else {
-      setBgColor("bg-transparent");
-      }
-  };
-
-  useEffect(() => {
-      window.addEventListener("scroll", handleScroll);
-      return () => {
-      window.removeEventListener("scroll", handleScroll);
-      };
-  }, []);
-
-      
+   
   return (
     <div className="relative w-full">
-
-          <div className={`${bgColor} fixed z-50 top-0 left-0 flex flex-wrap align-middle justify-around p-2 w-full transition-colors`}>
-                <div className=" w-1/2">
-                    <Image src={LogoRobotika} width={150} height={50} alt="logorobotik"/>
-                </div>
-                <div className="flex text-primaryYellow font-bold flex-row justify-end items-center gap-4 w-1/2">
-                    <Link href={"/"}>Beranda</Link>
-                    <Link href={"/#divisi"}>Divisi</Link>
-                    <Link href={"/program"}>Program</Link>
-                    <Link href={"/galeri"}>Galeri</Link>
-                    <Link href={"/login"}>Masuk</Link>
-                </div>
-            </div>
-    
         
       {/* Background website  */}
         <Image 
@@ -63,7 +29,7 @@ export default function Home() {
             <h1 className="top-0 z-0 text-white text-3xl text-center font-bold tracking-wide">
               UKM Robotika UMRAH
               <br />
-              “Melangkah Bersama Menuju Teknologi Masa Depan"
+              &quot;Melangkah Bersama Menuju Teknologi Masa Depan&quot;
             </h1>
 
             <Image src={LogoUmrah} alt="Umrah" className="m-8 w-32"/>
