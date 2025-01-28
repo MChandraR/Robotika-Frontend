@@ -3,14 +3,14 @@ import Image from "next/image";
 
 export default function Footer(){
     return (
-        <div className="grid grid-cols-3 relative w-full h-max bg-darkerBlue p-4 pb-16">
+        <div className="grid grid-cols-2 gap-4 md:gap-0 md:grid-cols-3 relative w-full h-max bg-darkerBlue p-4 pb-16">
             <div className="">
                 <Image src={LogoRobotika} alt="robotik" className="w-[12rem] mb-4"></Image>
                 <p className="font-semibold tracking-wider ps-2">Jalan Politeknik, Senggarang, Kec. Tanjungpinang <br />
                 Kota, Kota Tanjung Pinang, <br />Kepulauan Riau 29115</p>
             </div>
 
-            <div></div>
+            <div className="hidden md:block"></div>
 
             <div className="flex flex-col justify-start w-full gap-2">
                 <h1 className="font-bold text-lg">Contact Us</h1>
