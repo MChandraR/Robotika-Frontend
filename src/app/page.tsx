@@ -5,9 +5,11 @@ import { GedungA , Banner1} from "@/assets/images/background";
 import { LogoRobotika, LogoUmrah} from "@/assets/images/logo";
 import { Robot, ArrowRight } from "@/assets/images/icon";
 import { GoChevronRight, GoChevronLeft  } from "react-icons/go";
+import { BsArrowLeftCircle , BsArrowRightCircle} from "react-icons/bs";
 //Data 
 import feature from "@/data/fitur";
 import divisi from "@/data/divisi";
+import {Product} from "@/data/produk";
 //Komponen
 import Footer from "@/components/Footer";
 
@@ -123,9 +125,20 @@ export default function Home() {
           <div className="w-[5rem] h-[4px] bg-primaryYellow mb-1"></div>
           <h1 className="text-primaryYellow text-3xl font-bold tracking-wider w-min whitespace-nowrap">PRODUK KAMI</h1>
           
-          <center className="py-8">
-            <Image src={"/images/product/asv.png"} width={1920} height={1080} quality={100} alt="" className="w-[20vw]"/>
-            <h2 className="text-primaryBlue font-bold text-3xl m-4 tracking-wider" >Goerindam CyberSea - ASV</h2>
+          <center className="py-8 relative">
+            <BsArrowLeftCircle className="absolute top-[40%] left-1/4 w-[3rem] text-primaryYellow text-5xl"/>
+            <BsArrowRightCircle className="absolute top-[40%] right-1/4 w-[3rem] text-primaryYellow text-5xl"/>
+
+            <Image src={Product[0].productImage ?? ""} width={1920} height={1080} quality={100} alt="" className="w-[20vw]"/>
+            <h2 className="text-primaryBlue font-bold text-3xl m-4 tracking-wider" >{Product[0].productName}</h2>
+            <div className="flex gap-2 align-center justify-center">
+              {
+                Product[0].productCategory.map((item,key)=>(
+                  <div key={key} className="bg-primaryYellow text-primaryBlue rounded-sm px-4">{item}</div>
+                ))
+              }
+            </div>
+            <p className="py-4 w-[65%] text-gray-700 text-lg">{Product[0].productDesc}</p>
           </center>
 
         </div>
