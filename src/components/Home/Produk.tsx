@@ -2,7 +2,6 @@ import { BsArrowLeftCircle , BsArrowRightCircle} from "react-icons/bs";
 import {Product} from "@/data/produk";
 import Image from "next/image";
 import {motion} from "motion/react";
-import { AnimatePresence } from "motion/react"
 import { useState } from "react";
 
 export default function Produk(){
