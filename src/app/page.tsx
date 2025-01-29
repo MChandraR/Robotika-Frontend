@@ -14,6 +14,7 @@ import Berita from "@/components/Home/Berita";
 import Faq from "@/components/Home/Faq";
 import Link from "next/link";
 import ScrollToTop from "@/components/Utils/ScrollToTop";
+import OurTeam from "@/components/Home/OurTeam";
 
 
 export default function Home() {
@@ -58,6 +59,9 @@ export default function Home() {
 
       {/* Bagian Banner Utama */}
       <Main/>
+
+      {/* Bagian banner team */}
+      <OurTeam/>
 
       {/* Bagian Divisi */}
       <Divisi/>

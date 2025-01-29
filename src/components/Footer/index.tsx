@@ -17,13 +17,13 @@ export default function Footer(){
             <div className="hidden md:block"></div>
 
             <div className="flex flex-col mb-8 md:md-0 justify-start w-full gap-2">
-                <h1 className="font-bold text-lg">Contact Us</h1>
+                <h1 className="font-bold text-white text-lg">Contact Us</h1>
                 <div className="bg-white h-[2px] w-full"></div>
-                <div className="flex font-bold tracking-wider align-center gap-2 pt-4">
+                <div className="flex text-white font-bold tracking-wider align-center gap-2 pt-4">
                     <FaInstagram className="text-3xl"/>
                     <Link href={"/instagram"}>@robotika.umrah</Link>
                 </div>
-                <div className="flex font-bold tracking-wider align-center gap-2">
+                <div className="flex text-white font-bold tracking-wider align-center gap-2">
                     <FaWhatsapp className="text-3xl"/>
                     <Link href={"/wa"}>+62 877 1975 6442</Link>
                     
