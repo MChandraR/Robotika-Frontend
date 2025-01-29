@@ -1,7 +1,7 @@
 import { IoCalendar } from "react-icons/io5";
 import { FiSearch } from "react-icons/fi";
 //Data
-import berita from "@/data/dummy/berita";
+import berita, { TypeBerita } from "@/data/dummy/berita";
 import category from "@/data/updateCategory";
 
 import Link from "next/link";
@@ -11,7 +11,7 @@ import { motion } from "motion/react";
 export default function Berita(){
     const [idx, setIdx] = useState(0);
 
-    const shuffleArray = (array: any[]) => {
+    const shuffleArray = (array:TypeBerita[]) => {
         for (let i = array.length - 1; i > 0; i--) {
           // Pilih indeks acak dari 0 hingga i
           const j = Math.floor(Math.random() * (i + 1));
@@ -23,14 +23,11 @@ export default function Berita(){
     };
       
    
-      
-
     useEffect(()=>{
         const inter = setInterval(()=>{
             shuffleArray(berita);
             console.log(berita[idx]);
-            setIdx(index => index = Math.floor(Math.random() * berita.length)
-            );
+            setIdx(Math.floor(Math.random() * berita.length));
         }, 5000);
 
         return ()=>clearInterval(inter);

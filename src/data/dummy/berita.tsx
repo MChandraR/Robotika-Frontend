@@ -1,4 +1,4 @@
-interface Berita{
+interface TypeBerita{
     id? : number,
     date? : string,
     title? : string,
@@ -6,7 +6,7 @@ interface Berita{
     url? : string
 }
 
-const berita:Berita[] = [
+const berita:TypeBerita[] = [
     {
         id : 1,
         date : "2025/09/11 09:00:00.00",
@@ -46,4 +46,4 @@ const berita:Berita[] = [
 
 export default berita;
 
-export type {Berita};
+export type {TypeBerita};
