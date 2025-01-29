@@ -46,7 +46,7 @@ export default function Produk(){
                     <h2  className="text-primaryBlue font-bold text-xl md:text-3xl m-4 tracking-wider" >{Product[idx].productName}</h2>
                     <div className="flex gap-2 align-center justify-center">
                         {
-                        Product[0].productCategory.map((item,key)=>(
+                        Product[idx].productCategory.map((item,key)=>(
                             <div key={key} className="bg-primaryYellow text-primaryBlue rounded-sm px-4 font-bold tracking-wider text-sm md:text-lg">{item}</div>
                         ))
                         }
