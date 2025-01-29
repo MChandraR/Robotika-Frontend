@@ -2,6 +2,7 @@ import divisi from "@/data/divisi";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "@/assets/images/icon";
+import {motion} from "motion/react";
 
 export default function Divisi(){
     return (
@@ -17,7 +18,9 @@ export default function Divisi(){
               <h2 className="text-center font-bold text-2xl">{item.name}</h2>
               <p className="text-black font-bold mt-2 mx-2 md:mx-6 text-[.7rem] md:text-lg">{item.desc}</p>
               <div className="w-full h-full absolute top-0 left-0 flex align-bottom justify-center">
-                  <Image src={ArrowRight}  alt="arrow-right" className="relative w-12 h-12 self-end mb-2 md:mb-6 bg-dark0_15 rounded-full p-2"/>
+                  <motion.div whileHover={{scale:1.2}} className="relative w-12 h-12 self-end mb-2 md:mb-6 bg-dark0_15 rounded-full p-2">
+                    <Image src={ArrowRight}  alt="arrow-right" />
+                  </motion.div>
               </div>
              </center>
             </Link>

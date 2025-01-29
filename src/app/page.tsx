@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { GedungA } from "@/assets/images/background";
 import { LogoUmrah} from "@/assets/images/logo";
+import {motion} from "motion/react";
 //Data 
 import feature from "@/data/fitur";
 //Komponen
@@ -13,6 +14,7 @@ import Berita from "@/components/Home/Berita";
 import Faq from "@/components/Home/Faq";
 import Link from "next/link";
 import ScrollToTop from "@/components/Utils/ScrollToTop";
+
 
 export default function Home() {
   return (
@@ -39,9 +41,14 @@ export default function Home() {
         <div className="absolute md:relative bottom-4 grid grid-cols-2 md:flex justify-around gap-4 p-4 overflow-auto flex-nowrap w-full">
           {
             feature.map((item, key)=>(
-              <Link href={item.url} key={key} className={`${ (key>=feature.length-1 && key%2 == 0) ? "col-span-2" : ""} bg- rounded-md md:rounded-none md:bg-primaryYellow w-full text-sm md:text-lg text-center font-bold text-primaryYellow border-2 md:border-0 border-primaryYellow md:text-primaryBlue p-2 whitespace-nowrap`}>
-                {item.title}
-              </Link>
+              <motion.div 
+              whileHover={{scale : 1.1}}
+              key={key} 
+              className={`${ (key>=feature.length-1 && key%2 == 0) ? "col-span-2" : ""} rounded-md md:rounded-none md:bg-primaryYellow w-full text-sm md:text-lg text-center font-bold text-primaryYellow border-2 md:border-0 border-primaryYellow md:text-primaryBlue p-2 whitespace-nowrap`}>
+                <Link href={item.url}  >
+                    {item.title}
+                </Link>
+              </motion.div>
             ))
           }
         </div>

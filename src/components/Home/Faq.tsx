@@ -27,7 +27,7 @@ export default function Faq(){
                 {item.expand ? <GoChevronDown className="text-3xl"/> : <GoChevronRight className="text-3xl"/>}
                 
               </div>
-              {item.expand ? <p className="tracking-wider text-gray-600 font-bold py-4 text-sm">{parse(item.ans??"")}</p> : ""}
+              {item.expand ? <p className="tracking-wider text-justify text-gray-600 font-bold py-4 text-sm">{parse(item.ans??"")}</p> : ""}
             </div>
           ))}
         </div>

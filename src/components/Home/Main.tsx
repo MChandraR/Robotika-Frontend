@@ -2,11 +2,14 @@ import { Robot } from "@/assets/images/icon";
 import { LogoRobotika,} from "@/assets/images/logo";
 import { Banner1} from "@/assets/images/background";
 import { GoChevronRight, GoChevronLeft  } from "react-icons/go";
+import {motion} from "motion/react";
 
 import Image from "next/image";
 
 
 export default function Main(){
+    const transition = {
+    };
     return (
         <div className="bg-white relative text-primaryBlue py-6 p-4 md:p-6 w-full">
           
@@ -17,17 +20,19 @@ export default function Main(){
         
           <div className="bg-white mt-4 py-8 relative h-[70vh] md:h-[80vh]">
             {
-              //Gambar banner
-              <Image src={Banner1} alt="banner" 
-              className="absolute h-[65vh] md:h-[75vh] object-cover top-0 left-0 w-full rounded-tl-lg rounded-tr-3xl rounded-bl-3xl">
-              </Image>
+            //Gambar banner
+            <motion.div className="hidden" transition={transition} animate={{display:"block"}}>
+                <Image className="absolute h-[65vh] md:h-[75vh] object-cover top-0 left-0 w-full rounded-tl-lg rounded-tr-3xl rounded-bl-3xl" src={Banner1} alt="banner"/>
+            </motion.div>
+             
             }
             
             {
-              //Filter 
-              <div
-              className="absolute h-[65vh] md:h-[75vh] object-cover top-0 left-0 w-full bg-filterBlue rounded-tl-lg rounded-tr-3xl rounded-bl-3xl">
-              </div>
+            //Filter 
+            <motion.div  className="absolute h-[65vh] md:h-[75vh] object-cover top-0 left-0 w-full bg-filterBlue rounded-tl-lg rounded-tr-3xl rounded-bl-3xl">
+
+            </motion.div>
+             
             }
           
 
