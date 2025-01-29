@@ -3,10 +3,10 @@
 import Image from "next/image";
 import { GedungA , Banner1} from "@/assets/images/background";
 import { LogoRobotika, LogoUmrah} from "@/assets/images/logo";
-
+import { useState, useEffect } from "react";
 //Icon
 import { Robot, ArrowRight } from "@/assets/images/icon";
-import { GoChevronRight, GoChevronLeft  } from "react-icons/go";
+import { GoChevronRight, GoChevronLeft, GoChevronDown  } from "react-icons/go";
 import { BsArrowLeftCircle , BsArrowRightCircle} from "react-icons/bs";
 import { IoCalendar } from "react-icons/io5";
 import { FiSearch } from "react-icons/fi";
@@ -16,12 +16,22 @@ import divisi from "@/data/divisi";
 import {Product} from "@/data/produk";
 import berita from "@/data/dummy/berita";
 import category from "@/data/updateCategory";
+import faq from "@/data/faq";
 //Komponen
 import Link from "next/link";
 
 
 export default function Home() {
-   
+  const [FaQ, setFaQ] = useState(faq);
+
+  const openFaQ = async (idx:number)=>{
+    setFaQ(prevFaQ => 
+      prevFaQ.map((item, i) => 
+          i === idx ? { ...item, expand: !item.expand } : item
+      )
+  );
+  };
+
   return (
     <div className="relative w-full overflow-hidden">
         
@@ -88,8 +98,8 @@ export default function Home() {
               src={LogoRobotika} alt="logo-robotik"
               />
 
-            <p className="relative text-white font-bold px-12 md:px-[5rem] py-4 text-md md:text-xl tracking-wider">
-              Robotika UMRAH merupakan salah satu UKM yang berfokus pada pengembangan skill dan talenta terutama dibidang robot dan kapal, dengan moto “Melangkah Bersama Menuju Teknologi Masa Depan”  kami akan terus menghasilkan inovasi baru yang tentunya dapat mendorong perkembangan teknologi di masa depan. 
+            <p className="relative text-white font-bold px-10 md:px-[5rem] py-4 text-md md:text-xl tracking-wider">
+              Robotika UMRAH merupakan UKM yang berfokus pada pengembangan skill dan talenta terutama dibidang robot dan kapal, dengan moto “Melangkah Bersama Menuju Teknologi Masa Depan”  kami akan terus menghasilkan inovasi baru yang tentunya dapat mendorong perkembangan teknologi di masa depan. 
             </p>
             </center>
             
@@ -213,8 +223,31 @@ export default function Home() {
         <div className="px-4 py-8 bg-white min-h-[50vh]">
           <center>
            <h2 className="text-primaryYellow font-bold tracking-wider border-b-2 w-min px-16 py-2 text-xl border-primaryYellow">Sponsorship</h2>
-           <p className="">-Belum ada sponsor-</p>
+           <p className="p-4">-Belum ada sponsor-</p>
           </center>
+        </div>
+
+
+        {/* Bagian FAQ */}
+        <div className="bg-white p-4 md:p-8 pb-10 md:pb-16">
+          <div className="w-[5rem] h-[4px] bg-primaryYellow mb-1"></div>
+          <h1 className="text-primaryYellow text-3xl font-bold tracking-wider w-min whitespace-nowrap">FAQ</h1>
+          {/* List pertanyaan */}
+          <div className="grid grid-cols-1 mt-4 md:mt-8">
+            {FaQ.map((item,key)=>(
+              <div key={key} >
+                <div className="flex  text-primaryBlue font-bold align-center text-md md:text-xl pr-4 border-gray-300 border-b-2 w-full py-4 cursor-pointer" onClick={()=>openFaQ(key)}>
+                  <p className="w-full tracking-wide">{item.q}</p>
+                  {item.expand ? <GoChevronDown className="text-3xl"/> : <GoChevronRight className="text-3xl"/>}
+                  
+                </div>
+                {item.expand ? <p className="text-gray-600 font-bold py-4 text-sm">{item.ans}</p> : ""}
+              </div>
+             
+              
+            ))}
+            
+          </div>
         </div>
 
     </div>
