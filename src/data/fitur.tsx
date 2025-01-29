@@ -22,7 +22,7 @@ const feature = [
     {
       id : 5,
       title : "Sponsorship",
-      url : "/sponsorship"
+      url : "/#sponsorship"
     },
 ];
 

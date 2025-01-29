@@ -10,25 +10,25 @@ const faq:FAQ[] = [
     {
         id : 1,
         q : "Bagaimana jika saya ingin menjadi bagian dari UKM ROBOTIKA UMRAH ?",
-        ans : "Ya daftar !",
-        expand : true
+        ans : "Kamu bisa mengajukan pendaftaran melalui link yang akan dibagikan pada pengumuman ketika pendaftaran dibuka, silahkan kunjungi link dan isi data diri dan cv mu.",
+        expand : false
     },
     {
         id : 2,
         q : "Siapa saja yang dapat bergabung dengan UKM ROBOTIKA UMRAH ?",
-        ans : "Ya daftar",
+        ans : "UKM Robotika UMRAH membuka peluang bagi seluruh mahasiswa aktif UMRAH yang ingin bergabung dan aktif dalam UKM",
         expand : false
     },
     {
         id : 3,
         q : "Bagaimana ingin menjadi sponsor dari UKM ROBOTIKA UMRAH ?",
-        ans : "Ya daftar",
+        ans : "Tata cara pengajuan mengenai sponsorship dapat diakses pada link berikut <a className='text-primaryYellow' href='/sponsorship'>Sponsorship</a> atau dapat langsung menghubungi narahubung <a className='text-primaryYellow' href='https://wa.me/087719756442'>087719756442</a> ",
         expand : false
     },
     {
         id : 4,
         q : "Apa saja program dan kegiatan selama menjadi anggota ?",
-        ans : "Ya daftar",
+        ans : "Sebagai anggota aktif UKM Robotika UMRAH kamu berhak mendapat Pelatihan sesuai dengan Divisi atau Minat kamu, kamu juga bisa ikut dalam berbagai riset serta perlombaan baik Nasional maupun Internasional",
         expand : false
     }
 ];
