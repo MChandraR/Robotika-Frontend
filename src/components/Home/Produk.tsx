@@ -40,6 +40,7 @@ export default function Produk(){
                 <motion.div 
                     key={idx}
                     initial={{ x: 300, opacity: 0 }}
+                    transition={isInviewProto ? {delay : .2} : {delay : 0}}
                     animate={isInviewProto ? { x: 0, opacity: 1 } : { x: 0, opacity: 0 }}
                     exit={{ x: -300, opacity: 0 }}>
                     <Image src={Product[idx].productImage ?? ""} width={1920} height={1080} quality={100} alt="" className="w-[30vw] md:w-[20vw]"/>

@@ -56,7 +56,7 @@ export default function Berita(){
                     style={{
                         backgroundImage: `url(${berita[idx]?.image })`,
                     }}>
-                    <Link key={idx} href={berita[idx].url??"/berita"} className="h-full w-full" >
+                    <Link key={idx} href={berita[idx].url??"/berita"} className="text-white h-full w-full" >
                         <div className="absolute bottom-0 h-1/3 bg-darkBlue0_75 p-4">
                         <div className="flex gap-2 align-center mb-2">
                             <IoCalendar/>
@@ -93,10 +93,10 @@ export default function Berita(){
                             <Link href={item.url??"/berita"} >
                             <div className="absolute bottom-0 h-[45%]  md:h-[40%] bg-darkBlue0_75 p-4">
                                 <div className="flex gap-2 align-center mb-1">
-                                <IoCalendar className="text-[.5rem]"/>
-                                <span className="text-[.5rem] font-bold">{new Date(item.date??"").toUTCString()}</span>
+                                <IoCalendar className="text-white text-[.5rem]"/>
+                                <span className="text-white text-[.5rem] font-bold">{new Date(item.date??"").toUTCString()}</span>
                                 </div>
-                                <h2 className="font-bold text-left tracking-wider text-[.7rem] h-[3rem] overflow-hidden">{item.title}</h2>
+                                <h2 className="text-white font-bold text-left tracking-wider text-[.7rem] h-[3rem] overflow-hidden">{item.title}</h2>
                             </div>
                             </Link>
                         </motion.div>
@@ -117,7 +117,7 @@ export default function Berita(){
                 <div className="flex flex-col mt-4">
                   {
                     category.map((item,key)=>(
-                      <div key={key} className={`text-left py-1 border-primaryYellow border-t-[1px] ${key>=category.length-1 ? "border-b-[1px]" :""}`}>
+                      <div key={key} className={`text-white text-left py-1 border-primaryYellow border-t-[1px] ${key>=category.length-1 ? "border-b-[1px]" :""}`}>
                         <Link href={item.link??"/"}>
                           {item.category}
                         </Link>
