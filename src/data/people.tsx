@@ -13,6 +13,12 @@ const member:Member[] = [
         desc : "Ketua umum Robotika Umrah"
     },
     {
+        id : 123,
+        name : "Al Fitrah Saputra",
+        role : "Wakil Ketua Umum/Elektrikal",
+        desc : "Wakil Ketua umum Robotika Umrah"
+    },
+    {
         id : 2201020103,
         name : "Muhammad Chandra Ramadhan",
         role : "Programmer",

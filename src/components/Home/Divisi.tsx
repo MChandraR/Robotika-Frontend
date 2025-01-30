@@ -24,9 +24,9 @@ export default function Divisi(){
           divisi.map((item, key )=>(
             <motion.div
             ref={ref}
-            initial={{opacity:0, translate : "translateX(-100%)", scale : 0}}
+            initial={{opacity:0, scale : 0}}
             transition={isInView ? {delay : key * .2} : {delay : 0}}
-            exit={{opacity:0, translate : "translateX(100%)", scale : 0}}
+            exit={{opacity:0, scale : 0}}
             animate={isInView ? {opacity : 1, scale : 1} : {opacity:0, scale : 0}}
             key={key}
             className={`relative text-primaryBlue px-2 md:px-4 py-8 rounded-md bg-[url('/images/background/divisi-bg.png')] bg-cover h-[30vh] md:h-[60vh] border-gray-200 border-2`}>

@@ -14,7 +14,7 @@ export default function OurTeam(){
     const [idx, setIdx] = useState(0);
 
     const changeIdx = (num:number)=>{
-        setIdx((member.length + idx-num) % member.length);
+        setIdx((member.length + idx+num) % member.length);
     };
 
     const getIdx = (n=0)=>{
