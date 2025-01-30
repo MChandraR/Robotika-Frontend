@@ -13,7 +13,7 @@ export default function Main(){
   const [idx, setIdx] = useState(0);
 
   const setIndex = (num=0)=>{
-      let newIdx = (banner.length + num + idx)%banner.length;
+      const newIdx = (banner.length + num + idx)%banner.length;
       setIdx(newIdx);
       return newIdx;
   }
