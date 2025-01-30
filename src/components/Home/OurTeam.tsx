@@ -31,7 +31,7 @@ export default function OurTeam(){
                 animate={isInView ? {opacity : 1, transform : "translateX(0)"} : {opacity : 0 , transform : "translatex(-100%)"}}
                 className="text-primaryYellow text-3xl font-bold tracking-wider w-min whitespace-nowrap">MEET OUR PEOPLE</motion.h1>
             <div className="relative grid grid-cols-1 md:grid-cols-[40%_50%_10%] mt-4 md:mt-8">
-                <div onClick={()=>changeIdx(-1)} className="z-20 flex absolute left-0 item-center justify-center h-full">
+                <div onClick={()=>changeIdx(1)} className="z-20 flex absolute left-0 item-center justify-center h-full">
                     <GrPrevious className="relative text-primaryBlue self-center text-xl h-min "/>
                 </div>
                 {/* List foto */}
@@ -93,7 +93,7 @@ export default function OurTeam(){
                
                <div className="absolute md:relative -right-2 md:right-auto h-full flex items-center justify-center text-primaryBlue font-bold">
                 {/* <span className="rotate-[90deg] text-lg">Next</span> */}
-                <div className=" bg-dark0_15 py-4" onClick={()=>changeIdx(1)}>
+                <div className=" bg-dark0_15 py-4" onClick={()=>changeIdx(-1)}>
                     <GrNext className="font-bold text-4xl"/>
                 </div>
                </div>
