@@ -29,6 +29,18 @@ const member:Member[] = [
         name : "Al Fitrah Saputra",
         role : "Wakil Ketua Umum/Elektrikal",
         desc : "Wakil Ketua umum Robotika Umrah"
+    },
+    {
+        id : 11411,
+        name : "Muhammad Farhan",
+        role : "Koordinator kompetisi",
+        desc : "Bertanggung jawab sebagai koordinator kompetisi, spesialis dibidang naval architecture"
+    },
+    {
+        id : 5414,
+        name : "Sakinah Mansapira",
+        role : "Team Media - Elektrikal",
+        desc : "Bertanggung jawab dalam pembuatan dan pengelolaan konten media untuk Robotika UMRAH, termasuk desain grafis, dokumentasi, serta publikasi informasi di berbagai platform untuk mendukung kegiatan tim."
     }
 ];
 

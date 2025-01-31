@@ -5,18 +5,27 @@ import { GoChevronRight, GoChevronLeft  } from "react-icons/go";
 import {motion} from "motion/react";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 export default function Main(){
   const banner = [Banner1, Banner2];
   const [idx, setIdx] = useState(0);
+  const [animate , setAnimate] = useState(false);
 
   const setIndex = (num=0)=>{
       const newIdx = (banner.length + num + idx)%banner.length;
+      setAnimate(!animate);
       setIdx(newIdx);
       return newIdx;
   }
+
+  useEffect(()=>{
+    const interval = setInterval(()=>{
+      setIndex(1);
+    }, 5000);
+    return ()=>{clearInterval(interval)};
+  });
 
   return (
       <div className="bg-white relative text-primaryBlue py-6 p-4 md:p-6 w-full">
@@ -33,13 +42,14 @@ export default function Main(){
           className="overflow-hidden absolute h-[65vh] md:h-[75vh]  top-0 left-0 w-full rounded-tl-lg rounded-tr-3xl rounded-bl-3xl"            
           >
             <motion.div 
-            transition={{repeat : Infinity, duration : 5, delay : 2, repeatType : "reverse"}} 
-            initial={{scale: 1}}
-            animate={{scale : [1, 1.2]}}
+            key={idx}
+            transition={{duration : 5, delay : 0}} 
+            initial={{scale: animate ? 1 : 1.2}}
+            animate={{scale : animate ? 1.2 : 1}}
             exit={{scale : 1}}
             className="relative w-full- h-full object-cover"
             >
-                <Image className="relative object-cover h-full w-full filter-[contrast(200%)_saturate(200%)]" src={banner[idx]} alt="banner"/>
+                <Image className="relative object-cover h-full w-full filter-[contrast(200%)_saturate(200%)]" width={640} height={480} src={banner[idx]} alt="banner"/>
             </motion.div>
             
           </div>
