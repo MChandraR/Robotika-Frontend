@@ -4,10 +4,14 @@ import Shipping from "./shipping_blue.png"
 import Service from "./service_blue.png"
 import Troubleshooting from "./troubleshooting_blue.png"
 import ArrowRight from "./arrow_right.png"
+import Ship from "./ship.png"
+import Kraken from "./kraken.png"
 
 export {
     Robot,
+    Ship,
     AIProcessor, 
+    Kraken,
     Shipping,
     Service,
     Troubleshooting,

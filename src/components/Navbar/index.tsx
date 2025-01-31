@@ -2,17 +2,20 @@
 import {LogoRobotika} from "@/assets/images/logo";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState,useEffect } from "react";
 
 const Navbar = ()=>{
-    const [bgColor, setBgColor] = useState("bg-transparent");
+    const route = usePathname();
+    const [bgColor, setBgColor] = useState(route == "/" ? "bg-transparent" : "bg-darkerBlue");
+    const minScroll = route == "/" ? 200 : 0;
   
     const handleScroll = () => {
         const scrollPosition = window.scrollY; // Mendapatkan posisi scroll
-        if (scrollPosition > 200) { // Ganti nilai ini sesuai kebutuhan
+        if (scrollPosition > minScroll) { // Ganti nilai ini sesuai kebutuhan
         setBgColor("bg-darkerBlue");
         } else {
-        setBgColor("bg-transparent");
+        setBgColor(route == "/" ? "bg-transparent" : "bg-darkerBlue");
         }
     };
 

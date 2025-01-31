@@ -49,7 +49,7 @@ export default function Main(){
             exit={{scale : 1}}
             className="relative w-full- h-full object-cover"
             >
-                <Image className="relative object-cover h-full w-full filter-[contrast(200%)_saturate(200%)]" width={640} height={480} src={banner[idx]} alt="banner"/>
+                <Image className="relative object-cover h-full w-full filter-[contrast(200%)_saturate(200%)]"  src={banner[idx]} alt="banner"/>
             </motion.div>
             
           </div>
