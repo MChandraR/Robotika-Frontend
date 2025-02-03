@@ -22,13 +22,13 @@ const member:Member[] = [
         id : 2201020103,
         name : "Muhammad Chandra Ramadhan",
         role : "Head of Programmer",
-        desc : "Programmer AI dibidang Autonomus , Web Developer."
+        desc : "Programmer AI dibidang Autonomus , Web Developer senang mencoba hal baru."
     },
     {
         id : 123,
         name : "Al Fitrah Saputra",
         role : "Wakil Ketua Umum/Elektrikal",
-        desc : "Wakil Ketua umum Robotika Umrah"
+        desc : "Penggemar teknologi dengan fokus pada robotika dan mekanik. Sering bereksperimen dengan proyek DIY seperti robot dan kapal."
     },
     {
         id : 11411,
@@ -41,7 +41,13 @@ const member:Member[] = [
         name : "Sakinah Mansapira",
         role : "Team Media - Elektrikal",
         desc : "Bertanggung jawab dalam pembuatan dan pengelolaan konten media untuk Robotika UMRAH, termasuk desain grafis, dokumentasi, serta publikasi informasi di berbagai platform untuk mendukung kegiatan tim."
-    }
+    },
+    {
+        id : 1142,
+        name : "Ananda Muhar Nurdin",
+        role : "Head of Designer",
+        desc : "Kepala divisi designer, spesialis dibidang Naval Architecture."
+    },
 ];
 
 export default member;

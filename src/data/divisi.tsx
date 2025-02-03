@@ -89,8 +89,8 @@ const divisi:Divisi[] = [
         long_desc : "Divisi designer bertanggung jawab untuk mendesain aspek visual dan ergonomi dari robot atau kapal. Mereka fokus pada estetika, antarmuka pengguna (UI), dan pengalaman pengguna (UX), sehingga perangkat atau sistem yang dibuat tidak hanya fungsional, tetapi juga mudah digunakan dan menarik secara visual.",
         link : "/divisi/designer",
         image : Design,
-        head_division : "Muhammad Chandra Ramadhan",
-        head_division_id : 2201020103,
+        head_division : "Ananda Muhar Nurdin",
+        head_division_id : 1142,
         function : [
             "Mendesain tampilan fisik robot/kapal, termasuk penataan bentuk, warna, dan detail eksterior.",
             "Membuat desain antarmuka pengguna (UI) untuk aplikasi kontrol, baik itu aplikasi mobile atau berbasis web, yang memungkinkan pengendalian atau pemantauan robot/kapal secara intuitif.",

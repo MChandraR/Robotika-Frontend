@@ -27,7 +27,7 @@ const Navbar = ()=>{
     }, []);
     
     return (
-        <div className={`${bgColor} fixed z-50 top-0 left-0 flex flex-wrap align-middle justify-around p-2 w-full transition-colors`}>
+        <div key={route} className={`${route==="/" ? bgColor : "bg-darkerBlue"} fixed z-50 top-0 left-0 flex flex-wrap align-middle justify-around p-2 w-full transition-colors`}>
             <div className=" w-1/2">
                 <Image src={LogoRobotika} width={150} height={50} alt="logorobotik"/>
             </div>

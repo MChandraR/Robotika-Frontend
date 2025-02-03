@@ -86,7 +86,7 @@ export default function OurTeam(){
                         animate={{opacity : 1 , transform : "translateX(0)"}}
                         transition={{delay : .2 , duration : .2}}
                         exit={{opacity : 0 , transform : "translateX(-100%)"}}
-                        className="text-black font-bold text-[.8rem] md:text-lg mt-16 md:mt-12 w-2/3">{member[idx].desc}</motion.p>
+                        className="text-black font-bold text-[.6rem] align-bottom h-full md:text-lg mt-20 drop-shadow-md drop-shadow-white md:mt-12 w-full md:w-2/3">{member[idx].desc}</motion.p>
                     </div>
                     <Image src={LogoRobotika} alt="robotika" className="absolute bottom-4 left-4 md:left-12 w-1/4"></Image>
                 </motion.div>
