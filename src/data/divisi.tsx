@@ -1,4 +1,4 @@
-import { AIProcessor, Shipping, Service, Troubleshooting } from "@/assets/images/icon";
+import { AIProcessor, Shipping, Service, Troubleshooting, Design } from "@/assets/images/icon";
 import { StaticImageData } from "next/image";
 interface Divisi{
     id : number,
@@ -80,6 +80,24 @@ const divisi:Divisi[] = [
             "Membuat sistem komunikasi Wi-Fi, Bluetooth, atau komunikasi serial antara berbagai komponen.",
             "Mengembangkan interface pengguna (misalnya aplikasi berbasis web atau mobile untuk memantau robot).",
             "Menggunakan AI atau machine learning jika diperlukan (misalnya untuk computer vision atau deteksi objek)."
+        ]
+    },
+    {
+        id : 5,
+        name : "Design",
+        desc : "Mendesain aspek visual dan ergonomi dari robot atau kapal.",
+        long_desc : "Divisi designer bertanggung jawab untuk mendesain aspek visual dan ergonomi dari robot atau kapal. Mereka fokus pada estetika, antarmuka pengguna (UI), dan pengalaman pengguna (UX), sehingga perangkat atau sistem yang dibuat tidak hanya fungsional, tetapi juga mudah digunakan dan menarik secara visual.",
+        link : "/divisi/designer",
+        image : Design,
+        head_division : "Muhammad Chandra Ramadhan",
+        head_division_id : 2201020103,
+        function : [
+            "Mendesain tampilan fisik robot/kapal, termasuk penataan bentuk, warna, dan detail eksterior.",
+            "Membuat desain antarmuka pengguna (UI) untuk aplikasi kontrol, baik itu aplikasi mobile atau berbasis web, yang memungkinkan pengendalian atau pemantauan robot/kapal secara intuitif.",
+            "Menyusun desain grafis dan ikonografi yang digunakan pada aplikasi atau perangkat keras (misalnya layar sentuh di kapal atau robot).",
+            "Bekerja sama dengan tim mekanik untuk memastikan desain visual cocok dengan struktur dan fungsionalitas robot.",
+            "Merancang elemen-elemen ergonomis yang memudahkan penggunaan dan interaksi pengguna dengan robot atau kapal.",
+            "Membuat rendering 3D untuk visualisasi desain atau presentasi."
         ]
     }
 ];
