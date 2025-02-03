@@ -22,7 +22,7 @@ const faq:FAQ[] = [
     {
         id : 3,
         q : "Bagaimana ingin menjadi sponsor dari UKM ROBOTIKA UMRAH ?",
-        ans : "Tata cara pengajuan mengenai sponsorship dapat diakses pada link berikut <a className='text-primaryYellow' href='/sponsorship'>Sponsorship</a> atau dapat langsung menghubungi narahubung <a className='text-primaryYellow' href='https://wa.me/087719756442'>087719756442</a> ",
+        ans : "Tata cara pengajuan mengenai sponsorship dapat diakses pada link berikut <a className='text-primaryYellow' href='/sponsorship'>Sponsorship</a> atau dapat langsung menghubungi narahubung <a className='text-primaryYellow' href='https://wa.me/6281363639216'>+62 813-6363-9216</a> ",
         expand : false
     },
     {

@@ -25,7 +25,7 @@ export default function Footer(){
                 </div>
                 <div className="flex text-white font-bold tracking-wider align-center gap-2">
                     <FaWhatsapp className="text-3xl"/>
-                    <Link href={"/wa"}>+62 877 1975 6442</Link>
+                    <Link href={"https://wa.me/6281363639216"}>+62 813-6363-9216</Link>
                     
                 </div>
             </div>
