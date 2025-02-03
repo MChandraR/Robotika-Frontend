@@ -76,7 +76,7 @@ export default function Divisi(){
               exit={{opacity:0, scale : 0}}
               animate={isInView ? {opacity : 1, scale : 1} : {opacity:0, scale : 0}}
               key={key}
-              className={`relative text-primaryBlue px-2 md:px-4 py-8 rounded-md bg-[url('/images/background/divisi-bg.png')] bg-cover h-[30vh] md:h-[60vh] border-gray-200 border-2 w-full md:w-[calc(25vw_-_2.5rem)] shrink-0`}>
+              className={` relative text-primaryBlue px-2 md:px-4 py-8 rounded-md bg-[url('/images/background/divisi-bg.png')] bg-cover h-[30vh] md:h-[60vh] border-gray-200 border-2 w-full md:w-[calc(25vw_-_2.5rem)] shrink-0`}>
               <Link href={item.link ?? "/divisi"}   >
               <center>
                 <Image src={item.image} alt="logo_divisi" className="w-1/2" />

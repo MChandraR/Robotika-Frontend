@@ -58,7 +58,7 @@ export default function Main(){
           
           {
           //Filter 
-          <motion.div  className="absolute h-[65vh] md:h-[75vh] object-cover top-0 left-0 w-full bg-filterBlue rounded-tl-lg rounded-tr-3xl rounded-bl-3xl">
+          <motion.div  className="absolute h-[65vh] md:h-[75vh] object-cover top-0 left-0 w-full bg-filterDarkerBlue rounded-tl-lg rounded-tr-3xl rounded-bl-3xl">
 
           </motion.div>
             

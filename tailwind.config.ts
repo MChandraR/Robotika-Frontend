@@ -18,6 +18,7 @@ export default {
         dark0_15 : "rgba(0, 0, 0, 0.15)",
         darkBlue0_75 : "rgba(3, 7, 56, 0.75)",
         filterBlue : "rgba(17, 39, 93, 0.5)",
+        filterDarkerBlue : "rgba(15, 40, 100, 0.75)",
       },
     },
   },
