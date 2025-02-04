@@ -1,101 +1,91 @@
+'use client';
+
 import Image from "next/image";
+import { GedungA } from "@/assets/images/background";
+import { LogoUmrah} from "@/assets/images/logo";
+import {motion} from "motion/react";
+//Data 
+import feature from "@/data/fitur";
+//Komponen
+import Main from "@/components/Home/Main";
+import Divisi from "@/components/Home/Divisi";
+import Produk from "@/components/Home/Produk";
+import Berita from "@/components/Home/Berita";
+import Faq from "@/components/Home/Faq";
+import Link from "next/link";
+import OurTeam from "@/components/Home/OurTeam";
+
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="relative w-full overflow-hidden">
+      {/* Background website  */}
+      <Image 
+        className="-z-10 fixed w-full md:h-auto h-[100vh] object-cover"
+        src={GedungA} alt="0" quality={100} 
+      />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className=" h-[100dvh] md:h-auto relative">
+        {/* Bagian atas tempat slogan dan logo // */}
+        <div className="relative h-full flex flex-col align-center justify-center md:pt-40 pb-10 z-0 w-full">
+          <center className="h-min self-center justify-center mt-0">
+            <h1 className="top-0 z-0 p-4 text-white text-xl md:text-3xl text-center font-bold tracking-wide"> UKM Robotika UMRAH<br/>
+              &quot;Melangkah Bersama Menuju Teknologi Masa Depan&quot;
+            </h1>
+            <Image src={LogoUmrah} alt="Umrah" className="m-2 md:m-8 w-24 md:w-32"/>
+          </center>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        
+
+        {/* Bagian menu atau fitur dalam web */}
+        <div className="absolute md:relative bottom-4 grid grid-cols-2 md:flex justify-around gap-4 p-4 overflow-auto flex-nowrap w-full">
+          {
+            feature.map((item, key)=>(
+              <motion.div 
+              whileHover={{scale : 1.1}}
+              key={key} 
+              className={`${ (key>=feature.length-1 && key%2 == 0) ? "col-span-2" : ""} rounded-md md:rounded-none md:bg-primaryYellow w-full text-sm md:text-lg text-center font-bold text-primaryYellow border-2 md:border-0 border-primaryYellow md:text-primaryBlue p-2 whitespace-nowrap`}>
+                <Link href={item.url}  >
+                    {item.title}
+                </Link>
+              </motion.div>
+            ))
+          }
+        </div>
     </div>
+     
+       
+
+      {/* Bagian Banner Utama */}
+      <Main/>
+
+      {/* Bagian banner team */}
+      <OurTeam/>
+
+      {/* Bagian Divisi */}
+      <Divisi/>
+
+      {/* Bagian Produk */}
+      <Produk/>
+  
+      {/* Bagian Berita */}
+      <Berita/>
+
+      {/* Bagian Sponsor */}
+      <div className="px-4 py-8 bg-white min-h-[50vh]" id="sponsorship">
+        <center>
+          <h2 className="text-primaryYellow font-bold tracking-wider border-b-2 w-min px-16 py-2 text-xl border-primaryYellow">Sponsorship</h2>
+          <p className="p-4">-Belum ada sponsor-</p>
+        </center>
+      </div>
+
+
+      {/* Bagian FAQ */}
+      <Faq/>
+
+
+
+    </div>
+   
   );
 }
