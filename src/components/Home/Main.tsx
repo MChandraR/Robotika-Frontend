@@ -38,21 +38,26 @@ export default function Main(){
         <div className="overflow-hidden bg-white mt-4 py-8 relative h-[70vh] md:h-[80vh] ">
           {
           //Gambar banner
-          <div
-          className="overflow-hidden absolute h-[65vh] md:h-[75vh]  top-0 left-0 w-full rounded-tl-lg rounded-tr-3xl rounded-bl-3xl"            
-          >
-            <motion.div 
-            key={idx}
-            transition={{duration : 5, delay : 0}} 
-            initial={{scale: animate ? 1 : 1.2}}
-            animate={{scale : animate ? 1.2 : 1}}
-            exit={{scale : 1}}
-            className="relative w-full- h-full object-cover"
+
+          banner.map((item,key)=>(
+            <div
+            key={key}
+            className={`${key==idx ? "inline-block" : "hidden"} overflow-hidden absolute h-[65vh] md:h-[75vh]  top-0 left-0 w-full rounded-tl-lg rounded-tr-3xl rounded-bl-3xl`}            
             >
-                <Image className="relative object-cover h-full w-full filter-[contrast(200%)_saturate(200%)]"  src={banner[idx]} alt="banner"/>
-            </motion.div>
-            
-          </div>
+              <motion.div 
+              key={idx}
+              transition={{duration : 5, delay : 0}} 
+              initial={{scale: animate ? 1 : 1.2}}
+              animate={{scale : animate ? 1.2 : 1}}
+              exit={{scale : 1}}
+              className="relative w-full- h-full object-cover"
+              >
+                  <Image className="relative object-cover h-full w-full filter-[contrast(200%)_saturate(200%)]"  src={banner[key]} alt="banner"/>
+              </motion.div>
+              
+            </div>
+          ))
+          
           
           }
           

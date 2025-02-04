@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState,useEffect } from "react";
-
+import ScrollToTop from "../Utils/ScrollToTop";
 const Navbar = ()=>{
     const route = usePathname();
     const [bgColor, setBgColor] = useState(route == "/" ? "bg-transparent" : "bg-darkerBlue");
@@ -38,6 +38,8 @@ const Navbar = ()=>{
                 <Link href={"/galeri"}>Galeri</Link>
                 <Link href={"/login"}>Masuk</Link>
             </div>
+            {/* Utility */}
+            <ScrollToTop/>
         </div>
     );
 }   

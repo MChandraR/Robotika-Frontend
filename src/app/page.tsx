@@ -13,7 +13,6 @@ import Produk from "@/components/Home/Produk";
 import Berita from "@/components/Home/Berita";
 import Faq from "@/components/Home/Faq";
 import Link from "next/link";
-import ScrollToTop from "@/components/Utils/ScrollToTop";
 import OurTeam from "@/components/Home/OurTeam";
 
 
@@ -85,8 +84,7 @@ export default function Home() {
       <Faq/>
 
 
-      {/* Utility */}
-      <ScrollToTop/>
+
     </div>
    
   );

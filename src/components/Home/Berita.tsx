@@ -47,25 +47,27 @@ export default function Berita(){
               animate={ isInView ? {opacity : 1, scale : 1} : {opacity : 0, scale : 0}}
               exit={{opacity : 0, scale : 0}}
               className={`relative w-full  h-full bg-cover bg-center`} >
-                <motion.div 
-                    key={idx} 
-                    initial={{transform:"translateX(100%)", opacity : 0}}
-                    animate={{transform : "translateX(0%)",opacity : 1}}
-                    exit={{transform : "translateX(-100%)", opacity : 1}}
-                    className={`relative w-full  h-full bg-cover bg-center`}
-                    style={{
-                        backgroundImage: `url(${berita[idx]?.image })`,
-                    }}>
-                    <Link key={idx} href={berita[idx].url??"/berita"} className="text-white h-full w-full" >
-                        <div className="absolute bottom-0 h-1/3 bg-darkBlue0_75 p-4">
-                        <div className="flex gap-2 align-center mb-2">
-                            <IoCalendar/>
-                            <h2 className="text-[.7rem] font-bold">{new Date(berita[idx].date??"").toUTCString()}</h2>
-                        </div>
-                        <h2 className="font-bold text-left tracking-wider text-xl h-[5rem] overflow-hidden">{berita[idx].title}</h2>
-                        </div>
-                    </Link>
-                </motion.div>
+                <Link key={idx} href={berita[idx].url??("/post/"+berita[idx].id)} className="text-white h-full w-full" >
+                  <motion.div 
+                      key={idx} 
+                      initial={{transform:"translateX(100%)", opacity : 0}}
+                      animate={{transform : "translateX(0%)",opacity : 1}}
+                      exit={{transform : "translateX(-100%)", opacity : 1}}
+                      className={`relative w-full  h-full bg-cover bg-center`}
+                      style={{
+                          backgroundImage: `url(${berita[idx]?.image })`,
+                      }}>
+                      <div key={idx}  className="text-white h-full w-full" >
+                          <div className="absolute bottom-0 h-1/3 bg-darkBlue0_75 p-4">
+                          <div className="flex gap-2 align-center mb-2">
+                              <IoCalendar/>
+                              <h2 className="text-[.7rem] font-bold">{new Date(berita[idx].date??"").toUTCString()}</h2>
+                          </div>
+                          <h2 className="font-bold text-left tracking-wider text-xl h-[5rem] overflow-hidden">{berita[idx].title}</h2>
+                          </div>
+                      </div>
+                  </motion.div>
+                </Link>
               </motion.div>
               
 
@@ -81,25 +83,25 @@ export default function Berita(){
                         transition={isInView ?{delay : key * 0.2} : {delay : 0}}
                         className="relative h-full bg-cover object-center bg-center" 
                         >
-                        <motion.div 
-                            initial={{opacity : 0}}
-                            animate={{opacity : 1}}
-                            exit={{opacity:0.5}}
-                            transition={{duration : 1 * (Math.random()*3)}}
-                            className="relative h-full bg-cover object-center bg-center" 
-                            style={{
-                                backgroundImage: `url(${item?.image ?? ""})`,
-                            }} >
-                            <Link href={item.url??"/berita"} >
-                            <div className="absolute bottom-0 h-[45%]  md:h-[40%] bg-darkBlue0_75 p-4">
-                                <div className="flex gap-2 align-center mb-1">
-                                <IoCalendar className="text-white text-[.5rem]"/>
-                                <span className="text-white text-[.5rem] font-bold">{new Date(item.date??"").toUTCString()}</span>
-                                </div>
-                                <h2 className="text-white font-bold text-left tracking-wider text-[.7rem] h-[3rem] overflow-hidden">{item.title}</h2>
-                            </div>
-                            </Link>
-                        </motion.div>
+                        <Link href={item.url??("/post/"+item.id)} >
+                          <motion.div 
+                              initial={{opacity : 0}}
+                              animate={{opacity : 1}}
+                              exit={{opacity:0.5}}
+                              transition={{duration : 1 * (Math.random()*3)}}
+                              className="relative h-full bg-cover object-center bg-center" 
+                              style={{
+                                  backgroundImage: `url(${item?.image ?? ""})`,
+                              }} >
+                              <div className="absolute bottom-0 h-[45%]  md:h-[40%] bg-darkBlue0_75 p-4">
+                                  <div className="flex gap-2 align-center mb-1">
+                                  <IoCalendar className="text-white text-[.5rem]"/>
+                                  <span className="text-white text-[.5rem] font-bold">{new Date(item.date??"").toUTCString()}</span>
+                                  </div>
+                                  <h2 className="text-white font-bold text-left tracking-wider text-[.7rem] h-[3rem] overflow-hidden">{item.title}</h2>
+                              </div>
+                          </motion.div>
+                        </Link>
                     </motion.div>
                    
                   ))
