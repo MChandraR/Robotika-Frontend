@@ -8,7 +8,9 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { motion , useInView} from "motion/react";
 
-export default function Berita(){
+export default function Berita({bgcolor = "bg-filterBlue"}:{
+  bgcolor? : string
+}){
     const ref = useRef(null);
     const isInView = useInView(ref);
 
@@ -37,7 +39,7 @@ export default function Berita(){
     });
 
     return (
-        <div className="relative px-4 py-8 bg-filterBlue ">
+        <div className={`relative px-4 py-8 ${bgcolor}`}>
         <center>
             <h2 className="text-primaryYellow font-bold text-2xl text-center w-min whitespace-nowrap border-b-4 border-primaryYellow px-16 tracking-wide">Update Terbaru</h2>
             <div ref={ref} className="w-full grid grid-rows-[40%_40%_10%] md:grid-rows-none md:grid-cols-[33%_40%_20%] gap-[2%] h-[130vh] md:h-[70vh] mt-12 md:m-4 md:mt-12 " > 

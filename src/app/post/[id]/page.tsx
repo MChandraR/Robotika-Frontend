@@ -34,7 +34,7 @@ export default async function Page({
                         <div className="bg-primaryBlue px-2 font-bold rounded-sm text-white">Berita</div>
                     </div>
                     {/* Kontent  */}
-                    <p className=" text-gray-700 text-sm  md:text-lg font-bold text-justify">
+                    <p className=" text-gray-700 text-sm  md:text-lg font-semibold text-justify">
                         &#9;{post.title}
                     </p>
                 </div>
@@ -52,9 +52,9 @@ export default async function Page({
                             <Link href={`/post/${item.id}`} className="text-darkerBlue font-bold text-md max-h-[3rem] overflow-hidden">{item.title}</Link>
                             <div className="flex gap-2 item-center">
                                 <FiCalendar className="text-primaryBlue text-sm md:text-xl"/>
-                                <div className="text-primaryBlue text-xs md:text-sm font-bold">{new Date(post.date??0).toUTCString()}</div>
+                                <div className="text-primaryBlue text-xs md:text-sm font-bold">{new Date(item.date??0).toUTCString()}</div>
                             </div>
-                            <p className="text-sm max-h-[2.5rem] overflow-hidden">{item.title}</p>
+                            <p className="text-sm max-h-[2.5rem] overflow-hidden ">{item.title}</p>
                         </div>
                     </div>
                 ))}

@@ -16,7 +16,7 @@ export default function NotFound(){
     })
 
     return (
-        <div className="relative h-[100dvh] w-full text-gray-500 flex flex-col item-center justify-center">
+        <div className="relative h-[100dvh] w-full text-gray-500 flex flex-col item-center justify-center overflow-hidden">
             <div className="relative text-black mt-1/2 self-center">
                 <h2 className="text-center text-darkestBlue text-[8rem] font-bold">404</h2>
                 <h2 className="text-center text-darkestBlue text-md font-bold">Ups...Sepertinya halaman tidak ditemukan</h2>
