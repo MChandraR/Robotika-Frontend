@@ -28,13 +28,13 @@ const Navbar = ()=>{
     
     return (
         <div key={route} className={`${route==="/" ? bgColor : "bg-darkerBlue"} fixed z-50 top-0 left-0 flex flex-wrap align-middle justify-around p-2 w-full transition-colors`}>
-            <div className=" w-1/2">
+            <Link className=" w-1/2" href="/">
                 <Image src={LogoRobotika} width={150} height={50} alt="logorobotik"/>
-            </div>
-            <div className="flex text-primaryYellow font-bold flex-row justify-end items-center gap-2 md:gap-4 w-1/2">
+            </Link>
+            <div className="flex text-primaryYellow font-bold flex-row justify-end items-center gap-2 md:gap-4 w-1/2 text-sm md:text-lg">
                 <Link href={"/"} className="hidden md:block">Beranda</Link>
-                <Link href={"/#divisi"}>Divisi</Link>
-                <Link href={"/program"}>Program</Link>
+                <Link href={"/post"}>Postingan</Link>
+                <Link href={"/anggota"}>Anggota</Link>
                 <Link href={"/galeri"}>Galeri</Link>
                 <Link href={"/login"}>Masuk</Link>
             </div>
