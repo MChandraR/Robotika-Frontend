@@ -16,9 +16,9 @@ export default async function Page({
             <div className="text-primaryYellow font-bold text-xl md:text-3xl pt-2">Post / {post.category}</div>
 
             {/* Bagian berita */}
-            <div className="grid grid-cols-1 md:grid-cols-2 pt-8 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-[40%_60%] pt-8 gap-8">
                 <Image 
-                className="w-full max-h-[60vh] object-cover"
+                className="hidden md:inline w-full md:min-h-[62vh] max-h-[65vh] object-cover"
                 src={`/images/post/image_${post.id}.png`} width={1280} height={720} alt="post-image"/>
 
                 {/* Detail berita */}
@@ -30,12 +30,15 @@ export default async function Page({
                     <h1 className="text-primaryYellow uppercase text-3xl tracking-wider font-bold min-h-0 max-h-[7rem] overflow-hidden ">{post.title}</h1>
                     {/* Lis tag */}
                     <div className="flex gap-2">
-                        <div className="bg-primaryBlue px-2 font-bold rounded-sm text-white">Berita</div>
-                        <div className="bg-primaryBlue px-2 font-bold rounded-sm text-white">Berita</div>
+                        <div className="bg-primaryBlue px-2 font-bold rounded-sm text-white tracking-wider">#Berita</div>
+                        <div className="bg-primaryBlue px-2 font-bold rounded-sm text-white tracking-wider">#Berita</div>
                     </div>
+                    <Image 
+                    className="md:hidden w-full md:min-h-[62vh] max-h-[65vh] object-cover"
+                    src={`/images/post/image_${post.id}.png`} width={1280} height={720} alt="post-image"/>
                     {/* Kontent  */}
-                    <p className=" text-gray-700 text-sm  md:text-lg font-semibold text-justify">
-                        &#9;{post.title}
+                    <p className=" text-gray-700 text-[.9rem] md:text-lg font-semibold text-justify md:pr-8 ">
+                        {post.title}
                     </p>
                 </div>
             </div>
