@@ -1,13 +1,76 @@
+"use client"
 import member from "@/data/people";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { FaCaretDown } from "react-icons/fa";
 
 export default function Page(){
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedLanguage, setSelectedLanguage] = useState(new Date().getFullYear());
+
+    const years:number[] = [];
+
+    useEffect(()=>{
+        for(let i=new Date().getFullYear();  i>=2016 ; i--){
+            years.push(i);
+        }
+        return ;
+    });
+
+   
+
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+    };
+
+    const handleSelect = (language: number) => {
+        setSelectedLanguage(language);
+        setIsOpen(false);
+    };
+
+
     return (
         <div className="min-h-[100vh] p-6 md:p-16 pt-32 md:pt-32 flex flex-col gap-4">
-            <div className="flex gap-4">
+            <div className="flex gap-4 h-12 item-center" >
                 <h1 className="text-black font-bold">Periode : </h1>
-                <div className="bg-primaryYellow font-bold  px-4 rounded-md text-primaryBlue">
-                    2025
+                <div className="flex justify-center min-h-screen z-10">
+                    <div className="relative inline-block text-left">
+                        {/* Dropdown button */}
+                        <button
+                            type="button"
+                            className="inline-flex justify-center w-full
+                                    rounded-md border border-gray-300
+                                    shadow-sm px-4 py-2 bg-white text-sm
+                                    font-medium text-black hover:bg-gray-50"
+                            onClick={toggleDropdown}
+                        >
+                            {selectedLanguage}
+                            <FaCaretDown className="ml-2" />
+                        </button>
+
+                        {/* Dropdown menu */}
+                        {isOpen && (
+                            <div className="origin-top-right absolute
+                                            right-0 mt-2 w-56 rounded-md
+                                            shadow-lg bg-white ring-1 ring-black
+                                            ring-opacity-5 focus:outline-none">
+                                <div className="py-1">
+                                    {years.map((language, index) => (
+                                        <a
+                                            key={index}
+                                            href="#"
+                                            className="block px-4 py-2
+                                                    text-sm text-black
+                                                    hover:bg-gray-100"
+                                            onClick={() => handleSelect(language)}
+                                        >
+                                            {language}
+                                        </a>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
             <h1 className="w-full md:w-1/2 uppercase font-bold text-4xl text-darkerBlue">Meet Our Team and Expert In Robotika UMRAH</h1>
