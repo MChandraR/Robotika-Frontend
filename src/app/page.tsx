@@ -26,9 +26,9 @@ export default function Home() {
             src={GedungA} alt="0" quality={100} 
           />
 
-        <div className=" h-[100dvh] md:h-auto relative">
+        <div className=" h-[100dvh] md:h-[100dvh] relative">
             {/* Bagian atas tempat slogan dan logo // */}
-            <div className="relative h-full flex flex-col align-center justify-center md:pt-40 pb-10 z-0 w-full">
+            <div className="relative h-[90%] flex flex-col align-center justify-center md:pt-40 pb-10 z-0 w-full">
               <center className="h-min self-center justify-center mt-0">
                 <h1 className="top-0 z-0 p-4 text-white text-xl md:text-3xl text-center font-bold tracking-wide"> UKM Robotika UMRAH<br/>
                   &quot;Melangkah Bersama Menuju Teknologi Masa Depan&quot;

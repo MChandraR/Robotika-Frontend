@@ -24,7 +24,7 @@ const Navbar = ()=>{
         return () => {
         window.removeEventListener("scroll", handleScroll);
         };
-    }, []);
+    });
     
     return (
         <div key={route} className={`${route==="/" ? bgColor : "bg-darkerBlue"} fixed z-50 top-0 left-0 flex flex-wrap align-middle justify-around py-2 px-2 md:px-4 w-full transition-colors`}>

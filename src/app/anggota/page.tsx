@@ -9,14 +9,15 @@ export default function Page(){
     const [isOpen, setIsOpen] = useState(false);
     const [selectedLanguage, setSelectedLanguage] = useState(new Date().getFullYear());
 
-    const years:number[] = [];
+    const [years, setYears] = useState([new Date().getFullYear()]);
 
     useEffect(()=>{
-        for(let i=new Date().getFullYear();  i>=2016 ; i--){
-            years.push(i);
-        }
-        return ;
-    });
+        const year = [];
+        for(let i=new Date().getFullYear();  i>=2016 ; i--)year.push(i);
+        setYears(year);
+        
+       
+    }, []);
 
    
 

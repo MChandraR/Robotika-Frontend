@@ -28,7 +28,7 @@ export default function Page(){
                                 <Image src={`/images/post/image_${item.id}.png`} alt="pos_image" width={640} height={480} className="h-[20vh] md:h-[40vh] object-cover"></Image>
                                 <div className="flex flex-col gap-1 md:gap-2">
                                     <div className="font-bold uppercase bg-primaryYellow w-min px-2 md:px-4 text-primaryBlue text-xs md:text-lg ">{item.category}</div>
-                                    <Link href={`/post/${item.id}`} className="text-darkerBlue font-bold text-md md:text-xl max-h-[4.8rem] md:max-h-[7rem] overflow-hidden">{item.title}</Link>
+                                    <Link href={`/post/${item.id}`} className="text-darkerBlue font-bold text-md md:text-xl max-h-[4.8rem] md:max-h-[5.4rem] overflow-hidden">{item.title}</Link>
                                     <div className="flex gap-2 item-center">
                                         <FiCalendar className="text-primaryBlue text-sm md:text-xl"/>
                                         <div className="text-primaryBlue text-xs md:text-sm font-bold">{new Date(item.date??0).toUTCString()}</div>
