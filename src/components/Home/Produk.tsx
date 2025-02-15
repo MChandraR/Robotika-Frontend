@@ -1,11 +1,11 @@
 import { BsArrowLeftCircle , BsArrowRightCircle} from "react-icons/bs";
-import {Product} from "@/data/produk";
+import {Produk} from "@/data/produk";
 import Image from "next/image";
 import { useState } from "react";
 import {motion, useInView} from "motion/react";
 import { useRef } from "react";
 
-export default function Produk(){
+export default function ProductView(){
     const [idx, setIdx] = useState(0);
     const ref = useRef(null);
     const isInView = useInView(ref);
@@ -14,7 +14,7 @@ export default function Produk(){
 
     const changePage = (num:number)=>{
         setIdx( idx =>
-            idx = (Product.length + idx + num) % Product.length
+            idx = (Produk.length + idx + num) % Produk.length
         );
     }
     
@@ -43,16 +43,16 @@ export default function Produk(){
                     transition={isInviewProto ? {delay : .2} : {delay : 0}}
                     animate={isInviewProto ? { x: 0, opacity: 1 } : { x: 0, opacity: 0 }}
                     exit={{ x: -300, opacity: 0 }}>
-                    <Image src={Product[idx].productImage ?? ""} width={1920} height={1080} quality={100} alt="" className="w-[30vw] md:w-[20vw]"/>
-                    <h2  className="text-primaryBlue font-bold text-xl md:text-3xl m-4 tracking-wider" >{Product[idx].productName}</h2>
+                    <Image src={Produk[idx].productImage ?? ""} width={1920} height={1080} quality={100} alt="" className="w-[30vw] md:w-[20vw]"/>
+                    <h2  className="text-primaryBlue font-bold text-xl md:text-3xl m-4 tracking-wider" >{Produk[idx].productName}</h2>
                     <div className="flex gap-2 align-center justify-center">
                         {
-                        Product[idx].productCategory.map((item,key)=>(
+                        Produk[idx].productCategory.map((item,key)=>(
                             <div key={key} className="bg-primaryYellow text-primaryBlue rounded-sm px-4 font-bold tracking-wider text-sm md:text-lg">{item}</div>
                         ))
                         }
                     </div>
-                    <p className="py-4 w-[90%] md:w-[65%] text-gray-700 text-sm md:text-lg">{Product[idx].productDesc}</p>
+                    <p className="py-4 w-[90%] md:w-[65%] text-gray-700 text-sm md:text-lg">{Produk[idx].productDesc}</p>
                 </motion.div>
               
             </center>

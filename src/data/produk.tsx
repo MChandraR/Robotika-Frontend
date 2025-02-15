@@ -1,12 +1,6 @@
-interface ProdukInterface{
-    productName? : string,
-    productDesc? : string,
-    productCategory : string[],
-    productImage? : string
-}
+import { Product } from "@/type/product";
 
-
-const Product:ProdukInterface[] = [
+const Produk:Product[] = [
     {
         productName : "Goerindam Cybersea",
         productDesc : "ASV, sebagai kapal tanpa awak yang mampu menjalankan berbagai tugas, dari survei laut hingga pengawasan perairan, menawarkan potensi besar untuk meningkatkan kapasitas surveilans dan manajemen di sektor kelautan.Hal ini didukung oleh kondisi demografi dan usia produktif sumber daya manusia di Indonesia yang memerlukan persiapan, pelatihan, dan cara berpikir kritis-logis untuk menghadapi kemajuan di masa depan.",
@@ -28,6 +22,6 @@ const Product:ProdukInterface[] = [
 ];
 
 export {
-    Product
+    Produk
 };
-export type { ProdukInterface };
+export type { Product };

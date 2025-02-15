@@ -1,3 +1,4 @@
+import MainLayout from "@/components/Layout/MainLayout";
 import divisi from "@/data/divisi";
 import Image from "next/image";
 const divisiList = ["mekanik", "elektrikal", "drafter", "programmer", "designer"];
@@ -11,6 +12,7 @@ export default async function Page({
     const idx = divisiList.indexOf(id);
     return (
 
+      <MainLayout>
         <div className="grid grid-cols-1 md:grid-cols-2 relative min-h-[100dvh] p-4 md:p-12 pt-[8rem] md:pt-[8rem] w-full">
           {/* Profile area */}
           <div className="md:hidden h-[50vh] flex flex-col item-center justify-center pt-0">
@@ -45,5 +47,7 @@ export default async function Page({
             <div className="self-center text-primaryYellow font-bold text-xl" >Head of {divisi[idx].name}</div>
           </div>
         </div>
+      </MainLayout>
+
     );
 }
