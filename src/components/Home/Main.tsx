@@ -28,7 +28,7 @@ export default function Main(){
   });
 
   return (
-      <div className="bg-white relative text-primaryBlue py-6 p-4 md:p-6 w-full">
+      <div className="bg-white relative text-primaryBlue py-6 p-4 md:p-8 w-full">
         
         <div className="flex">
           <h1 className="font-bold text-2xl" >Robotika UMRAH</h1>

@@ -20,12 +20,12 @@ export default function ProductView(){
     
     return (
         <div className="bg-white p-4 md:p-8 pt-16 md:pt-8">
-            <div className="w-[5rem] h-[4px] bg-primaryYellow mb-1"></div>
+            <div className="w-[7rem] h-[6px] rounded-full bg-primaryYellow mb-1"></div>
             <motion.h1 
             ref={ref}
             initial={{opacity : 0, transform : "translateX(-100%)"}}
             animate={isInView ? {opacity : 1, transform : "translateX(0)"} : {opacity : 0 , transform : "translatex(-100%)"}}
-            className="text-primaryYellow text-3xl font-bold tracking-wider w-min whitespace-nowrap">PRODUK KAMI</motion.h1>
+            className="text-primaryYellow text-4xl font-bold tracking-wider w-min whitespace-nowrap">PRODUK KAMI</motion.h1>
             
             <center className="pb-8 relative pt-16 md:pt-8">
                 <motion.div whileHover={{scale:1.2}} className="absolute top-[40%] left-0 md:left-1/4 w-[3rem] text-primaryYellow text-5xl" onClick={()=>changePage(-1)}>

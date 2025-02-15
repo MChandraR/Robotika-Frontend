@@ -41,8 +41,8 @@ export default function Berita({bgcolor = "bg-filterBlue"}:{
     return (
         <div className={`relative px-4 py-8 ${bgcolor}`}>
         <center>
-            <h2 className="text-primaryYellow font-bold text-2xl text-center w-min whitespace-nowrap border-b-4 border-primaryYellow px-16 tracking-wide">Update Terbaru</h2>
-            <div ref={ref} className="w-full grid grid-rows-[40%_40%_10%] md:grid-rows-none md:grid-cols-[33%_40%_20%] gap-[2%] h-[130vh] md:h-[70vh] mt-12 md:m-4 md:mt-12 " > 
+            <h2 className="text-primaryYellow font-bold text-3xl text-center w-min whitespace-nowrap border-b-4 border-primaryYellow px-16 tracking-wide">Update Terbaru</h2>
+            <div ref={ref} className="w-full grid grid-rows-[40%_40%_10%] md:grid-rows-none md:grid-cols-[33%_40%_20%] gap-[2%] h-[110vh] md:h-[70vh] mt-12 md:m-4 md:mt-12 " > 
               {/* Update utama */}
               <motion.div 
               initial={{opacity : 0, scale : 0}}

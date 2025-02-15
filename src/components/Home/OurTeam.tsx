@@ -24,12 +24,12 @@ export default function OurTeam(){
     
     return (
         <div className="relative p-4 md:p-8 bg-white pb-8">
-            <div className="w-[5rem] h-[4px] bg-primaryYellow mb-1"></div>
+            <div className="w-[8rem] h-[6px] rounded-full bg-primaryYellow mb-1"></div>
             <motion.h1 
                 ref={ref}
                 initial={{opacity : 0, transform : "translateX(-100%)"}}
                 animate={isInView ? {opacity : 1, transform : "translateX(0)"} : {opacity : 0 , transform : "translatex(-100%)"}}
-                className="text-primaryYellow text-3xl font-bold tracking-wider w-min whitespace-nowrap">MEET OUR PEOPLE</motion.h1>
+                className="text-primaryYellow text-4xl font-bold tracking-wider w-min whitespace-nowrap">MEET OUR PEOPLE</motion.h1>
             <div className="relative grid grid-cols-1 md:grid-cols-[40%_50%_10%] mt-4 md:mt-8">
                 <div onClick={()=>changeIdx(-1)} className="z-20 flex absolute left-0 item-center justify-center h-full">
                     <GrPrevious className="relative text-primaryBlue self-center text-xl h-min "/>
