@@ -1,10 +1,6 @@
-interface UpdateCategory {
-    category? : string,
-    link? : string
-}
+import { PostCategory } from "@/type/postCategory";
 
-
-const category:UpdateCategory[] = [
+const category:PostCategory[] = [
     {
         category : "Berita",
         link : "/update/berita",

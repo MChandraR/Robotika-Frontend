@@ -10,8 +10,9 @@
   },
   "dependencies": {
     "@vercel/analytics": "^1.4.1",
+    "axios": "^1.7.9",
     "html-react-parser": "^5.2.2",
-    "motion": "^12.0.6",
+    "motion": "^12.4.3",
     "next": "15.1.6",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",

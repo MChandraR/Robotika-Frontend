@@ -1,10 +1,4 @@
-interface Member{
-    id : number,
-    name : string,
-    role : string,
-    desc : string
-}
-
+import { Member } from "@/type/member";
 const member:Member[] = [
     {
         id : 2201010012,
