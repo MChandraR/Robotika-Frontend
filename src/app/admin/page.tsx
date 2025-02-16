@@ -1,7 +1,6 @@
 "use client"
 
 import AdminLayout from "@/components/Layout/AdminLayout";
-
 export default function Page(){
     return(
         <AdminLayout>

@@ -57,14 +57,14 @@ export default function Page(){
                             {/* Dropdown menu */}
                             {isOpen && (
                                 <div className="origin-top-right absolute
-                                                right-0 mt-2 w-56 rounded-md
+                                                left-0 mt-2 w-56 rounded-md
                                                 shadow-lg bg-white ring-1 ring-black
                                                 ring-opacity-5 focus:outline-none">
                                     <div className="py-1">
                                         {years.map((language, index) => (
                                             <a
                                                 key={index}
-                                                href="#"
+                                                href={`#?id=${language}`}
                                                 className="block px-4 py-2
                                                         text-sm text-black
                                                         hover:bg-gray-100"
