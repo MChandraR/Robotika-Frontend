@@ -60,7 +60,7 @@ export default function Berita({bgcolor = "bg-filterBlue"}:{
               animate={ isInView ? {opacity : 1, scale : 1} : {opacity : 0, scale : 0}}
               exit={{opacity : 0, scale : 0}}
               className={`relative w-full  h-full bg-cover bg-center`} >
-                <Link key={idx} href={postData?.[idx].url??("/post/"+postData?.[idx].id)} className="text-white h-full w-full" >
+                <Link key={idx} href={("/post/"+postData?.[idx].id)} className="text-white h-full w-full" >
                   <motion.div 
                       key={idx} 
                       initial={{transform:"translateX(100%)", opacity : 0}}
@@ -96,7 +96,7 @@ export default function Berita({bgcolor = "bg-filterBlue"}:{
                         transition={isInView ?{delay : key * 0.2} : {delay : 0}}
                         className="relative h-full bg-cover object-center bg-center" 
                         >
-                        <Link href={item.url??("/post/"+item.id)} >
+                        <Link href={("/post/"+item.id)} >
                           <motion.div 
                               initial={{opacity : 0}}
                               animate={{opacity : 1}}

@@ -8,18 +8,25 @@ import { Auth } from "@/service/api";
 import { showToast } from "@/components/Utils/alertUtils";
 import Swal from "@/components/Alert/Swal";
 import { setCookies, useAuth } from "@/hooks/useAuth";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Page(){
     const router = useRouter();
+    const pathname = usePathname(); 
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [visibility, setVisibility] = useState(false);
     const [message, setMessage] = useState("");
     const [token ] = useAuth();
 
+    useEffect(() => {
+        if (typeof window !== "undefined" && token && pathname === "/login") {
+            router.replace("/admin"); 
+        }
+    }, [token, pathname, router]); 
+    
     const HandleSubmit = async()=>{
         if(username === "" || password ===""){
             setMessage("Harap isi data dengan lengkap !");
@@ -37,9 +44,7 @@ export default function Page(){
         });
     };
 
-    useEffect(()=>{
-        if(token)router.push("/admin");
-    },[token, router]);
+  
 
 
     return(

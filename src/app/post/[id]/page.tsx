@@ -1,35 +1,44 @@
+"use client"
 import berita from "@/data/dummy/berita";
 import Image from "next/image";
 import { FiCalendar } from "react-icons/fi";
+import  DOMPurify  from "dompurify";
 import Link from "next/link";
 import MainLayout from "@/components/Layout/MainLayout";
+import { Post, storageUrl } from "@/service/api";
+import { useEffect, useState } from "react";
+import { PostType } from "@/type/postType";
+import { useParams } from "next/navigation";
 
-export default async function Page({
-    params,
-}:{
-    params : Promise<{id : number}>
-}){
-    const id = (await params).id??0;
-    const post = berita[id-1];
+export default function Page(){
+    const [post, setPost] = useState<PostType|null>(null);
+    const param = useParams<{id : string}>();
+
+    useEffect(()=>{
+        Post.getPost({id : param.id}).then((response)=>{
+            if(response.data) setPost(response.data?.[0]);
+        });
+    },[param.id]);
+
     return (
         <MainLayout>
             <div className="min-h-[100vh] p-6 md:p-8 pt-32 md:pt-32 text-black mb-16">
                 <div className="bg-primaryYellow h-2 w-28 rounded-[1rem]"></div>
-                <div className="text-primaryYellow font-bold text-xl md:text-3xl pt-2">Post / {post.category}</div>
+                <div className="text-primaryYellow font-bold text-xl md:text-3xl pt-2">Post / {post?.category}</div>
 
                 {/* Bagian berita */}
                 <div className="grid grid-cols-1 md:grid-cols-[40%_60%] pt-8 gap-8">
                     <Image 
                     className="hidden md:inline w-full md:min-h-[62vh] max-h-[65vh] object-cover"
-                    src={`/images/post/image_${post.id}.png`} width={1280} height={720} alt="post-image"/>
+                    src={`${storageUrl}/${post?.image}`} width={1280} height={720} alt="post-image"/>
 
                     {/* Detail berita */}
                     <div className="flex flex-col gap-4">
                         <div className="flex gap-2 item-center">
                             <FiCalendar className="text-primaryBlue text-2xl"/>
-                            <div className="text-primaryBlue font-bold">{new Date(post.date??0).toUTCString()}</div>
+                            <div className="text-primaryBlue font-bold">{new Date(post?.date??0).toUTCString()}</div>
                         </div>
-                        <h1 className="text-primaryYellow uppercase text-3xl tracking-wider font-bold min-h-0 max-h-[7rem] overflow-hidden ">{post.title}</h1>
+                        <h1 className="text-primaryYellow uppercase text-3xl tracking-wider font-bold min-h-0 max-h-[7rem] overflow-hidden ">{post?.title}</h1>
                         {/* Lis tag */}
                         <div className="flex gap-2">
                             <div className="bg-primaryBlue px-2 font-bold rounded-sm text-white tracking-wider">#Berita</div>
@@ -37,10 +46,10 @@ export default async function Page({
                         </div>
                         <Image 
                         className="md:hidden w-full md:min-h-[62vh] max-h-[65vh] object-cover"
-                        src={`/images/post/image_${post.id}.png`} width={1280} height={720} alt="post-image"/>
+                        src={`${storageUrl}/${post?.image}`} width={1280} height={720} alt="post-image"/>
                         {/* Kontent  */}
-                        <p className=" text-gray-700 text-[.9rem] md:text-lg font-semibold text-justify md:pr-8 ">
-                            {post.title}
+                        <p dangerouslySetInnerHTML={{__html : DOMPurify.sanitize( post?.content??"")}} className=" text-gray-700 text-[.9rem] md:text-lg font-semibold text-justify md:pr-8 ">
+                            
                         </p>
                     </div>
                 </div>

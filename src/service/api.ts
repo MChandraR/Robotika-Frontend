@@ -8,9 +8,11 @@ import {
     PostResponse,
     AddPost
 } from "@/type/apiInterface";
+import { getCookies } from "@/hooks/useAuth";
 
 const handleRequest = async <T>(request: Promise<AxiosResponse<T>>): Promise<T|{status : number, message : string}>=> {
     try {
+        (await request).config.headers.Authorization = "Bearer " + getCookies("token");
         const response = await request;
         return response.data;
     } catch (error) {
@@ -34,9 +36,9 @@ export const Auth = {
 };
 
 export const Post = {
-    getPost : () : Promise<PostResponse> =>
-        handleRequest<PostResponse>(axios.get(`${baseUrl}/post`)),
+    getPost : (param? : {id? : string|null }) : Promise<PostResponse> =>
+        handleRequest<PostResponse>(axios.get(`${baseUrl}/post${param?.id? "?id="+param?.id : ""}`)),
 
     addPost: (param : AddPost) : Promise<PostResponse> => 
-        handleRequest<PostResponse>(axios.post(`${baseUrl}/post`, param))
+        handleRequest<PostResponse>(axios.post(`${baseUrl}/post`, param, {headers : {Authorization :"Bearer " + getCookies("token") }}))
 }

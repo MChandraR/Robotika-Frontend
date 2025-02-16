@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
 import Loader from "../common/Loaders";
@@ -12,6 +12,9 @@ export default function AdminLayout({
 }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [token] = useAuth();
+  useEffect(()=>{
+    // if(!token)router.replace("/login");
+  },[token]);
   return (
     <>
       {token ? 
