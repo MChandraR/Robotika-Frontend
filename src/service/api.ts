@@ -1,8 +1,12 @@
 import axios, { AxiosResponse } from "axios";
-const baseUrl = "https://bpmp-kepri-backend.my.id/api";
+const baseUrl = "https://robotika-backend.vercel.app/api/api";
+export const storageUrl = "https://robotika.s3.ap-southeast-2.amazonaws.com";
+
 import { 
     LoginInterface,  
-    LoginResponse 
+    LoginResponse,
+    PostResponse,
+    AddPost
 } from "@/type/apiInterface";
 
 const handleRequest = async <T>(request: Promise<AxiosResponse<T>>): Promise<T|{status : number, message : string}>=> {
@@ -26,5 +30,13 @@ const handleRequest = async <T>(request: Promise<AxiosResponse<T>>): Promise<T|{
 
 export const Auth = {
     Login: (params: LoginInterface): Promise<LoginResponse> => 
-        handleRequest<LoginResponse>(axios.post(`${baseUrl}/login`, params))
+        handleRequest<LoginResponse>(axios.post(`${baseUrl}/auth`, params))
 };
+
+export const Post = {
+    getPost : () : Promise<PostResponse> =>
+        handleRequest<PostResponse>(axios.get(`${baseUrl}/post`)),
+
+    addPost: (param : AddPost) : Promise<PostResponse> => 
+        handleRequest<PostResponse>(axios.post(`${baseUrl}/post`, param))
+}

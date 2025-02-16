@@ -27,7 +27,7 @@ export default function Page(){
 
             return;
         }
-        Auth.Login({email: username, password : password}).then((response)=>{
+        Auth.Login({username: username, password : password}).then((response)=>{
             if("data" in response){
                 showToast("success", response.message??"");
                 setCookies("token", response?.data?.token ?? "", 3600000);

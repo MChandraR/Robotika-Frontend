@@ -1,12 +1,13 @@
 import { IoCalendar } from "react-icons/io5";
 import { FiSearch } from "react-icons/fi";
 //Data
-import berita, { TypeBerita } from "@/data/dummy/berita";
 import category from "@/data/updateCategory";
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { motion , useInView} from "motion/react";
+import { Post, storageUrl } from "@/service/api";
+import { PostType } from "@/type/postType";
 
 export default function Berita({bgcolor = "bg-filterBlue"}:{
   bgcolor? : string
@@ -15,13 +16,12 @@ export default function Berita({bgcolor = "bg-filterBlue"}:{
     const isInView = useInView(ref);
 
     const [idx, setIdx] = useState(0);
+    const [postData, setPost] = useState<PostType[]|null>(null);
 
-    const shuffleArray = (array:TypeBerita[]) => {
+    const shuffleArray = (array:PostType[]) => {
         for (let i = array.length - 1; i > 0; i--) {
-          // Pilih indeks acak dari 0 hingga i
           const j = Math.floor(Math.random() * (i + 1));
           
-          // Tukar elemen array[i] dengan elemen array[j]
           [array[i], array[j]] = [array[j], array[i]];
         }
         return array;
@@ -30,13 +30,24 @@ export default function Berita({bgcolor = "bg-filterBlue"}:{
    
     useEffect(()=>{
         const inter = setInterval(()=>{
-            shuffleArray(berita);
-            console.log(berita[idx]);
-            setIdx(Math.floor(Math.random() * berita.length));
+          if(postData){
+            shuffleArray(postData);
+            console.log(postData[idx]);
+            setIdx(Math.floor(Math.random() * postData.length));
+          }
         }, 5000);
 
         return ()=>clearInterval(inter);
     });
+
+    const fetchData = async ()=>{
+      const data =  await Post.getPost();
+      if(data?.data)setPost(data?.data);
+    }
+
+    useEffect(()=>{
+      fetchData();
+    },[]);
 
     return (
         <div className={`relative px-4 py-8 ${bgcolor}`}>
@@ -49,7 +60,7 @@ export default function Berita({bgcolor = "bg-filterBlue"}:{
               animate={ isInView ? {opacity : 1, scale : 1} : {opacity : 0, scale : 0}}
               exit={{opacity : 0, scale : 0}}
               className={`relative w-full  h-full bg-cover bg-center`} >
-                <Link key={idx} href={berita[idx].url??("/post/"+berita[idx].id)} className="text-white h-full w-full" >
+                <Link key={idx} href={postData?.[idx].url??("/post/"+postData?.[idx].id)} className="text-white h-full w-full" >
                   <motion.div 
                       key={idx} 
                       initial={{transform:"translateX(100%)", opacity : 0}}
@@ -57,15 +68,15 @@ export default function Berita({bgcolor = "bg-filterBlue"}:{
                       exit={{transform : "translateX(-100%)", opacity : 1}}
                       className={`relative w-full  h-full bg-cover bg-center`}
                       style={{
-                          backgroundImage: `url(${berita[idx]?.image })`,
-                      }}>
+                        backgroundImage: `url(${storageUrl}/${postData?.[idx].image ?? ""})`,
+                       }} >
                       <div key={idx}  className="text-white h-full w-full" >
-                          <div className="absolute bottom-0 h-1/3 bg-darkBlue0_75 p-4">
+                          <div className="absolute bottom-0 h-1/3 bg-darkBlue0_75 p-4 w-full">
                           <div className="flex gap-2 align-center mb-2">
                               <IoCalendar/>
-                              <h2 className="text-[.7rem] font-bold">{new Date(berita[idx].date??"").toUTCString()}</h2>
+                              <h2 className="text-[.7rem] font-bold">{new Date(postData?.[idx].date??"").toUTCString()}</h2>
                           </div>
-                          <h2 className="font-bold text-left tracking-wider text-xl h-[5rem] overflow-hidden">{berita[idx].title}</h2>
+                          <h2 className="font-bold text-left tracking-wider text-xl h-[5rem] overflow-hidden">{postData?.[idx].title}</h2>
                           </div>
                       </div>
                   </motion.div>
@@ -76,7 +87,7 @@ export default function Berita({bgcolor = "bg-filterBlue"}:{
               {/* Berita List */}
               <div className="relative w-full grid grid-rows-2 grid-cols-2 gap-2">
                 {
-                  berita.filter((item,key)=>key>0 && key < 5).map((item,key)=>(
+                  postData?.filter((item,key)=>key>0 && key < 5).map((item,key)=>(
                     <motion.div
                         key={key +"-"+ idx} 
                         initial={{opacity : 0, scale : 0}}
@@ -93,9 +104,9 @@ export default function Berita({bgcolor = "bg-filterBlue"}:{
                               transition={{duration : 1 * (Math.random()*3)}}
                               className="relative h-full bg-cover object-center bg-center" 
                               style={{
-                                  backgroundImage: `url(${item?.image ?? ""})`,
+                                  backgroundImage: `url(${storageUrl}/${item?.image ?? ""})`,
                               }} >
-                              <div className="absolute bottom-0 h-[45%]  md:h-[40%] bg-darkBlue0_75 p-4">
+                              <div className="absolute bottom-0 h-[45%]  md:h-[40%] bg-darkBlue0_75 p-4 w-full">
                                   <div className="flex gap-2 align-center mb-1">
                                   <IoCalendar className="text-white text-[.5rem]"/>
                                   <span className="text-white text-[.5rem] font-bold">{new Date(item.date??"").toUTCString()}</span>
