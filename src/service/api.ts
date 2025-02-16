@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-const baseUrl = "https://robotika-backend.vercel.app/api/api";
+const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 export const storageUrl = "https://robotika.s3.ap-southeast-2.amazonaws.com";
 
 import { 
