@@ -17,7 +17,6 @@ import {
   Selection,
   SortDescriptor,
 } from "@heroui/react";
-import Link from "next/link";
 import { HiDotsVertical } from "react-icons/hi";
 import { FaAngleDown } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
@@ -176,7 +175,7 @@ export default function MyTable<T>(
     }
     
     
-  }, [index_key, router, view_url, onDelete]);
+  }, [index_key, router, view_url, onDelete, edit_url]);
 
   const onNextPage = React.useCallback(() => {
     if (page < pages) {
@@ -273,6 +272,7 @@ export default function MyTable<T>(
       </div>
     );
   }, [
+    router,
     add_url,
     columns,
     onClear,
