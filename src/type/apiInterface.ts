@@ -29,3 +29,14 @@ export interface AddPost{
     category? : string,
     url : string
 }
+
+export interface EditPost{
+    id : string,
+    title? : string,
+    tag? : string,
+    content? : string,
+    date? : string,
+    image? : string,
+    category? : string,
+    url? : string
+}

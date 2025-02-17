@@ -38,7 +38,15 @@ export default function Page(){
 
   return(
     <AdminLayout>
-      <MyTable data={post??[]}  columns={columns} index_key="id" search_key={"title"} add_url="/admin/post/add" view_url="/post" onDelete={deleteData}>
+      <MyTable 
+      data={post??[]}  
+      columns={columns} 
+      index_key="id" 
+      search_key={"title"} 
+      add_url="/admin/post/add" 
+      view_url="/post" 
+      edit_url="/admin/post"
+      onDelete={deleteData}>
         
       </MyTable>
     </AdminLayout>

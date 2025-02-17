@@ -5,7 +5,7 @@ import { FiCalendar } from "react-icons/fi";
 import  DOMPurify  from "dompurify";
 import Link from "next/link";
 import MainLayout from "@/components/Layout/MainLayout";
-import { Post, storageUrl } from "@/service/api";
+import { Post, postStorageUrl } from "@/service/api";
 import { useEffect, useState } from "react";
 import { PostType } from "@/type/postType";
 import { useParams } from "next/navigation";
@@ -30,7 +30,7 @@ export default function Page(){
                 <div className="grid grid-cols-1 md:grid-cols-[40%_60%] pt-8 gap-8">
                     <Image 
                     className="hidden md:inline w-full md:min-h-[62vh] max-h-[65vh] object-cover"
-                    src={`${storageUrl}/${post?.image}`} width={1280} height={720} alt="post-image"/>
+                    src={`${postStorageUrl}/${post?.image}`} width={1280} height={720} alt="post-image"/>
 
                     {/* Detail berita */}
                     <div className="flex flex-col gap-4">
@@ -41,12 +41,18 @@ export default function Page(){
                         <h1 className="text-primaryYellow uppercase text-3xl tracking-wider font-bold min-h-0 max-h-[7rem] overflow-hidden ">{post?.title}</h1>
                         {/* Lis tag */}
                         <div className="flex gap-2">
-                            <div className="bg-primaryBlue px-2 font-bold rounded-sm text-white tracking-wider">#Berita</div>
-                            <div className="bg-primaryBlue px-2 font-bold rounded-sm text-white tracking-wider">#Berita</div>
+                            {
+                                post?.tag?
+                                post?.tag?.split(";").map((item,key)=>(
+                                    <div key={key} className="bg-primaryBlue px-2 font-bold rounded-sm text-white tracking-wider">#{item}</div>
+                                )):
+                                <div className="bg-primaryBlue px-2 font-bold rounded-sm text-white tracking-wider">#{post?.category??"Umum"}</div>
+
+                            }
                         </div>
                         <Image 
                         className="md:hidden w-full md:min-h-[62vh] max-h-[65vh] object-cover"
-                        src={`${storageUrl}/${post?.image}`} width={1280} height={720} alt="post-image"/>
+                        src={`${postStorageUrl}/${post?.image}`} width={1280} height={720} alt="post-image"/>
                         {/* Kontent  */}
                         <p dangerouslySetInnerHTML={{__html : DOMPurify.sanitize( post?.content??"")}} className=" text-gray-700 text-[.9rem] md:text-lg font-semibold text-justify md:pr-8 ">
                             

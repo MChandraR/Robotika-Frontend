@@ -7,7 +7,8 @@ import {
     LoginInterface,  
     LoginResponse,
     PostResponse,
-    AddPost
+    AddPost,
+    EditPost
 } from "@/type/apiInterface";
 import { getCookies } from "@/hooks/useAuth";
 
@@ -41,6 +42,9 @@ export const Post = {
 
     addPost: (param : AddPost) : Promise<PostResponse> => 
         handleRequest<PostResponse>(axios.post(`${baseUrl}/post`, param, {headers: {Authorization : "Bearer " + getCookies("token")}})),
+
+    updatePost : (param : EditPost) : Promise<PostResponse> => 
+        handleRequest<PostResponse>(axios.put(`${baseUrl}/post`, param , {headers: {Authorization : "Bearer " + getCookies("token")}})),
 
     deletePost : (param : {id : string}) : Promise<PostResponse> => 
         handleRequest<PostResponse>(axios.delete(`${baseUrl}/post?id=${param.id}`,{headers: {Authorization : "Bearer " + getCookies("token")}}))
