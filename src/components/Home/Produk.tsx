@@ -19,7 +19,7 @@ export default function ProductView(){
     }
     
     return (
-        <div className="bg-white p-4 md:p-8 pt-16 md:pt-8">
+        <div className="bg-white relative p-4 md:p-8 pt-16 md:pt-8">
             <div className="w-[7rem] h-[6px] rounded-full bg-primaryYellow mb-1"></div>
             <motion.h1 
             ref={ref}

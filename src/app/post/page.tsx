@@ -10,15 +10,15 @@ import MainLayout from "@/components/Layout/MainLayout";
 export default function Page(){
     return (
         <MainLayout>     
-            <div className="">
+            <Image 
+                className="z-0 fixed w-full md:h-auto h-[100vh] object-cover"
+                src={GedungA} alt="0" quality={100} 
+            />
+            <div className="relative">
                 <div className="h-20"></div>
                 {/* Background website  */}
-                <Image 
-                    className="-z-10 fixed w-full md:h-auto h-[100vh] object-cover"
-                    src={GedungA} alt="0" quality={100} 
-                />
-                <Berita bgcolor="bg-transparent"/>
-                <div className="bg-white p-5 md:p-8 pt-12">
+                <Berita bgcolor="relative bg-transparent"/>
+                <div className="bg-white z-10 relativebg-white p-5 md:p-8 pt-12">
                     <div className="w-[5rem] h-[4px] bg-primaryYellow mb-1"></div>
                     <h1 className=" text-primaryYellow font-bold text-3xl ">Postingan</h1>
                     
