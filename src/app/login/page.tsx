@@ -5,8 +5,7 @@ import { FaLock, FaUser } from "react-icons/fa";
 import { Inter } from "next/font/google";
 import { useEffect, useState } from "react";
 import { Auth } from "@/service/api";
-import { showToast } from "@/components/Utils/alertUtils";
-import Swal from "@/components/Alert/Swal";
+import { showDialog } from "@/components/Utils/alertUtils";
 import { setCookies, useAuth } from "@/hooks/useAuth";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -17,8 +16,6 @@ export default function Page(){
     const pathname = usePathname(); 
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
-    const [visibility, setVisibility] = useState(false);
-    const [message, setMessage] = useState("");
     const [token ] = useAuth();
 
     useEffect(() => {
@@ -29,18 +26,19 @@ export default function Page(){
     
     const HandleSubmit = async()=>{
         if(username === "" || password ===""){
-            setMessage("Harap isi data dengan lengkap !");
-            setVisibility(true);
+            showDialog("error", "Login Gagal","Harap isi username dan password !");
+
 
             return;
         }
         Auth.Login({username: username, password : password}).then((response)=>{
             if("data" in response){
-                showToast("success", response.message??"");
+                showDialog("success", "Berhasil",response.message??"");
                 setCookies("token", response?.data?.token ?? "", 3600000);
                 return router.push("/admin");;
             }
-            alert(response.status);
+            showDialog("error", "Login Gagal", response.message??"");
+
         });
     };
 
@@ -50,7 +48,6 @@ export default function Page(){
     return(
         <div className="min-h-[100dvh] p-10 md:p-24 pt-36 flex item-center">
             <Navbar/>
-            <Swal text={message} visible={visibility} setVisibility={setVisibility}/>
 
             <div className="grid grid-cols-1 md:grid-cols-2 self-center gap-8 md:gap-4 md:mt-32">  
                 <div className={`${inter.className} self-center justify-self-start text-darkerBlue font-bold text-4xl md:text-[4rem] md:leading-[4.5rem] tracking-wider w-[75%] `}>Selamat Datang di Menu Admin</div>
