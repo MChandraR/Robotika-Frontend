@@ -36,7 +36,7 @@ export default function Page(){
                 setUrl(data.url??"");
             }
         });
-    },[]);
+    },[param.id]);
 
     const handleSubmit = ()=>{
         console.log("Proses");
