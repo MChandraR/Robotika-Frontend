@@ -9,7 +9,8 @@ export interface LoginResponse{
     status? : number,
     message? :string,
     data? : {
-        token ? :  string
+        token ? :  string,
+        username ? :string
     }
 }
 
@@ -21,9 +22,10 @@ export interface PostResponse{
 
 export interface AddPost{
     title : string,
+    tag? : string,
     content : string,
     date : string,
     image : string,
-    category : string,
+    category? : string,
     url : string
 }

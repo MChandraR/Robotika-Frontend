@@ -31,7 +31,7 @@ const TextEditor = ({
   );
 
   return (
-    <div className={`flex flex-col gap-2 w-full ${height}  text-black`}>
+    <div className={`flex flex-col gap-2 w-full ${height} mb-24 text-black`}>
       <p className="text-sm">{placeholder}</p>
       <div className="w-full h-full lg:h-full">
         <ReactQuill

@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 export const storageUrl = "https://robotika.s3.ap-southeast-2.amazonaws.com";
+export const postStorageUrl = `${storageUrl}/public/post`;
 
 import { 
     LoginInterface,  
@@ -12,7 +13,6 @@ import { getCookies } from "@/hooks/useAuth";
 
 const handleRequest = async <T>(request: Promise<AxiosResponse<T>>): Promise<T|{status : number, message : string}>=> {
     try {
-        (await request).config.headers.Authorization = "Bearer " + getCookies("token");
         const response = await request;
         return response.data;
     } catch (error) {
@@ -40,5 +40,8 @@ export const Post = {
         handleRequest<PostResponse>(axios.get(`${baseUrl}/post${param?.id? "?id="+param?.id : ""}`)),
 
     addPost: (param : AddPost) : Promise<PostResponse> => 
-        handleRequest<PostResponse>(axios.post(`${baseUrl}/post`, param, {headers : {Authorization :"Bearer " + getCookies("token") }}))
+        handleRequest<PostResponse>(axios.post(`${baseUrl}/post`, param, {headers: {Authorization : "Bearer " + getCookies("token")}})),
+
+    deletePost : (param : {id : string}) : Promise<PostResponse> => 
+        handleRequest<PostResponse>(axios.delete(`${baseUrl}/post?id=${param.id}`,{headers: {Authorization : "Bearer " + getCookies("token")}}))
 }

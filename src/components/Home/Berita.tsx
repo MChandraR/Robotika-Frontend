@@ -6,7 +6,7 @@ import category from "@/data/updateCategory";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { motion , useInView} from "motion/react";
-import { Post, storageUrl } from "@/service/api";
+import { Post, postStorageUrl } from "@/service/api";
 import { PostType } from "@/type/postType";
 
 export default function Berita({bgcolor = "bg-filterBlue"}:{
@@ -68,7 +68,7 @@ export default function Berita({bgcolor = "bg-filterBlue"}:{
                       exit={{transform : "translateX(-100%)", opacity : 1}}
                       className={`relative w-full  h-full bg-cover bg-center`}
                       style={{
-                        backgroundImage: `url(${storageUrl}/${postData?.[idx].image ?? ""})`,
+                        backgroundImage: `url(${postStorageUrl}/${postData?.[idx].image ?? ""})`,
                        }} >
                       <div key={idx}  className="text-white h-full w-full" >
                           <div className="absolute bottom-0 h-1/3 bg-darkBlue0_75 p-4 w-full">
@@ -104,7 +104,7 @@ export default function Berita({bgcolor = "bg-filterBlue"}:{
                               transition={{duration : 1 * (Math.random()*3)}}
                               className="relative h-full bg-cover object-center bg-center" 
                               style={{
-                                  backgroundImage: `url(${storageUrl}/${item?.image ?? ""})`,
+                                  backgroundImage: `url(${postStorageUrl}/${item?.image ?? ""})`,
                               }} >
                               <div className="absolute bottom-0 h-[45%]  md:h-[40%] bg-darkBlue0_75 p-4 w-full">
                                   <div className="flex gap-2 align-center mb-1">

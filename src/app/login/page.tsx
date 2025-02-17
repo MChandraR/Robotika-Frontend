@@ -34,6 +34,7 @@ export default function Page(){
         Auth.Login({username: username, password : password}).then((response)=>{
             if("data" in response){
                 showDialog("success", "Berhasil",response.message??"");
+                localStorage.setItem("username", response.data?.username??"undefined");
                 setCookies("token", response?.data?.token ?? "", 3600000);
                 return router.push("/admin");;
             }

@@ -53,8 +53,8 @@ function getItemValue<T>(item: T, key : keyof T): string {
   }
 
 export default function MyTable<T>(
-    { data , columns, search_key , add_url, view_url, index_key}: 
-    { data: T[] , columns : Col[], search_key : keyof T, add_url? : string, view_url? : string, index_key : keyof T}
+    { data , columns, search_key , add_url, view_url, index_key, onDelete}: 
+    { data: T[] , columns : Col[], search_key : keyof T, add_url? : string, view_url? : string, index_key : keyof T, onDelete? :(id : string)=>Promise<void>}
 ) {
     const router = useRouter();
     const [INITIAL_VISIBLE_COLUMNS, setCol] = useState<string[]>([]);
@@ -156,7 +156,10 @@ export default function MyTable<T>(
                         </DropdownItem>:<div></div>
                     }
                     <DropdownItem key="edit">Edit</DropdownItem>
-                    <DropdownItem key="delete">Delete</DropdownItem>
+                    {
+                        onDelete?
+                        <DropdownItem key="delete" onPress={async()=>onDelete(getItemValue(user, index_key))}>Delete</DropdownItem>:<div></div>
+                    }
                     </DropdownMenu>
                 </Dropdown>
                 </div>
@@ -170,7 +173,7 @@ export default function MyTable<T>(
     }
     
     
-  }, [index_key, router, view_url]);
+  }, [index_key, router, view_url, onDelete]);
 
   const onNextPage = React.useCallback(() => {
     if (page < pages) {

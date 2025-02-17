@@ -1,40 +1,34 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import ClickOutside from "@/components/ClickOutside";
 import { setCookies } from "@/hooks/useAuth";
 import { useRouter } from "next/navigation";
-
+import { RiAdminFill } from "react-icons/ri";
 const DropdownUser = () => {
   const router = useRouter();
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [username , setUsername] = useState<string|null>(null);
+
+  useEffect(()=>{
+    setUsername(localStorage.getItem("username"));
+  },[]);
 
   return (
     <ClickOutside onClick={() => setDropdownOpen(false)} className="relative">
       <Link
         onClick={() => setDropdownOpen(!dropdownOpen)}
-        className="flex items-center gap-4"
+        className="flex items-center gap-4 z-50"
         href="#"
       >
         <span className="hidden text-right lg:block">
-          <span className="block text-sm font-medium text-black dark:text-white">
-            Thomas Anree
+          <span className="block text-lg font-medium text-black dark:text-white">
+            {username ?? "unknown"}
           </span>
-          <span className="block text-xs">UX Designer</span>
         </span>
 
         <span className="h-12 w-12 rounded-full">
-          <Image
-            width={112}
-            height={112}
-            src={"/images/user/user-01.png"}
-            style={{
-              width: "auto",
-              height: "auto",
-            }}
-            alt="User"
-          />
+        <RiAdminFill className="text-4xl" />
         </span>
 
         <svg
@@ -57,7 +51,7 @@ const DropdownUser = () => {
       {/* <!-- Dropdown Start --> */}
       {dropdownOpen && (
         <div
-          className={`absolute right-0 mt-4 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark`}
+          className={`z-50 absolute right-0 mt-4 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark`}
         >
           <ul className="flex flex-col gap-5 border-b border-stroke px-6 py-7.5 dark:border-strokedark">
             <li>
@@ -137,7 +131,7 @@ const DropdownUser = () => {
             setCookies("token", "", 0);
             router.push("/login");
           }}
-          className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
+          className="z-50 bg-white flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
             <svg
               className="fill-current"
               width="22"
