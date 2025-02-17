@@ -248,11 +248,9 @@ export default function MyTable<T>(
             
             {
                 add_url?
-                <Link href={`${add_url ??"#"}`}>
-                    <Button color="primary" endContent={<FaPlus />}>
-                        Tambahkan
-                    </Button>
-                </Link>
+                  <Button color="primary" onPress={()=>router.push(`${add_url ??"#"}`)} endContent={<FaPlus />}>
+                      Tambah
+                  </Button>
                 :<div></div>
             }
           
