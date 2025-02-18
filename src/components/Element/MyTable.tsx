@@ -54,7 +54,7 @@ function getItemValue<T>(item: T, key : keyof T): string {
 function getNestedValue<T>(obj: T, path: string): unknown {
     return path.split(".").reduce<unknown>((acc, key) => {
         if (acc && typeof acc === "object" && key in acc) {
-            return (acc as Record<string, unknown>)[key];
+            return (acc as Record<string|number, unknown>)[key];
         }
         return undefined;
     }, obj);
@@ -146,7 +146,7 @@ export default function MyTable<T>(
 
   const renderCell = React.useCallback((user: User, columnKey: React.Key) => {
     if (typeof columnKey !== "string") return null;
-
+    console.log(user);
     const cellValue = getNestedValue(user, columnKey);
 
     switch(columnKey){
@@ -181,7 +181,7 @@ export default function MyTable<T>(
         default:
             return (
                 <div className="flex flex-col text-black">
-                  <p className="text-bold text-small capitalize">{typeof cellValue === "string"?cellValue : ""}</p>
+                  <p className="text-bold text-small capitalize">{typeof cellValue === "string"?cellValue : String(cellValue)}</p>
                 </div>
               );
     }

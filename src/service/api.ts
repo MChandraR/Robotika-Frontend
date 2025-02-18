@@ -69,9 +69,16 @@ export const Post = {
 }
 
 export const Member = {
-    getMember:():Promise<MemberResponse>=> 
-        handleRequest<MemberResponse>(axios.get(`${baseUrl}/member`)),
+    getMember:(param? : {id?:string}):Promise<MemberResponse>=> 
+        handleRequest<MemberResponse>(
+            axios.get(`${baseUrl}/member?`+
+                `${param?.id? "id="+param.id : ""}`
+            )
+        ),
 
     addMember:(param : MemberAdd):Promise<MemberResponse>=>
-        handleRequest<MemberResponse>(axios.post(`${baseUrl}/member`, param, axiosConfig() ))
+        handleRequest<MemberResponse>(axios.post(`${baseUrl}/member`, param, axiosConfig() )),
+
+    updateMember : (param : MemberAdd) : Promise<MemberResponse> =>
+        handleRequest<MemberResponse>(axios.put(`${baseUrl}/member`, param, axiosConfig()))
 };

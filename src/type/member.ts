@@ -4,9 +4,10 @@ export interface RoleType{
 }
 
 export interface MemberType{
-    id? : number,
+    id? : string,
     period? : number,
+    image? : string,
     name? : string,
     role? : string|RoleType,
-    desc? : string
+    description? : string
 }

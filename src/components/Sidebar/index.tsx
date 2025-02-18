@@ -10,7 +10,6 @@ import useLocalStorage from "@/hooks/useLocalStorage";
 import { menuGroupType } from "@/type/menuGrupType";
 import { FaNewspaper } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa";
-import { FaFingerprint } from "react-icons/fa";
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -66,11 +65,11 @@ const menuGroups:menuGroupType[] = [
           <FaUser />
         ),
         label: "Anggota",
-        route: "#",
-        children : [
-          { icon : <FaUser/> , label : "Anggota", route : "/admin/anggota" },
-          { icon : <FaFingerprint />, label : "Jabatan", route : "/admin/jabatan" },
-        ]
+        route: "/admin/anggota",
+        // children : [
+        //   { icon : <FaUser/> , label : "Anggota", route : "/admin/anggota" },
+        //   { icon : <FaFingerprint />, label : "Jabatan", route : "/admin/jabatan" },
+        // ]
       }
     ],
   },

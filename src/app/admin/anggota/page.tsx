@@ -35,6 +35,7 @@ export default function Page(){
     {name: "NAMA", uid: "name", sortable: true, visible : true},
     {name: "ROLE", uid: "role.name", sortable: true, visible : true},
     {name: "KATEGORI", uid: "role.type", sortable: true, visible : true},
+    {name: "PERIODE", uid: "period", sortable: true, visible : true},
     {name: "ACTION", uid: "actions", sortable: false, visible : true},
   ];
 
