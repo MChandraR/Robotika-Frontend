@@ -1,4 +1,5 @@
 import { PostType } from "./postType"
+import { MemberType } from "./member"
 
 export interface LoginInterface{
     username? :string,
@@ -39,4 +40,19 @@ export interface EditPost{
     image? : string,
     category? : string,
     url? : string
+}
+
+export interface MemberResponse{
+    status? : number,
+    message? : string,
+    data? : MemberType[]
+}
+
+export interface MemberAdd{
+    name : string,
+    image : string,
+    period : number,
+    role : string,
+    role_type : string,
+    description : string,
 }

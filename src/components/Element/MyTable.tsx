@@ -51,6 +51,15 @@ function getItemValue<T>(item: T, key : keyof T): string {
     return ""; 
   }
 
+function getNestedValue<T>(obj: T, path: string): unknown {
+    return path.split(".").reduce<unknown>((acc, key) => {
+        if (acc && typeof acc === "object" && key in acc) {
+            return (acc as Record<string, unknown>)[key];
+        }
+        return undefined;
+    }, obj);
+};
+
 export default function MyTable<T>(
     { data , columns, search_key , add_url, view_url, edit_url,  index_key, onDelete}: 
     { data: T[] , columns : Col[], search_key : keyof T, add_url? : string, view_url? : string, edit_url? :string, index_key : keyof T, onDelete? :(id : string)=>Promise<void>}
@@ -71,6 +80,8 @@ export default function MyTable<T>(
     });
     
     const prevColumnsRef = useRef<string[]>([]);
+
+    
 
     useEffect(() => {
         const filteredColumns = columns.filter((item) => item.visible).map((item) => item.uid);
@@ -134,8 +145,9 @@ export default function MyTable<T>(
   }, [sortDescriptor, items]);
 
   const renderCell = React.useCallback((user: User, columnKey: React.Key) => {
-    const cellValue = user[columnKey as keyof User];
-    console.log(columnKey);
+    if (typeof columnKey !== "string") return null;
+
+    const cellValue = getNestedValue(user, columnKey);
 
     switch(columnKey){
         case "actions":
@@ -152,15 +164,15 @@ export default function MyTable<T>(
                         view_url ?
                         <DropdownItem key="view" onPress={()=>router.push(`${view_url}/${getItemValue(user, index_key)}`)}>
                         View
-                        </DropdownItem>:<div></div>
+                        </DropdownItem>:null
                     }
                     {
                         edit_url ? 
-                        <DropdownItem key="edit" onPress={()=>router.push(`${edit_url}/${getItemValue(user, index_key)}`)}>Edit</DropdownItem> : <div></div>
+                        <DropdownItem key="edit" onPress={()=>router.push(`${edit_url}/${getItemValue(user, index_key)}`)}>Edit</DropdownItem> : null
                     }   
                     {
                         onDelete?
-                        <DropdownItem key="delete" onPress={async()=>onDelete(getItemValue(user, index_key))}>Delete</DropdownItem>:<div></div>
+                        <DropdownItem key="delete" onPress={async()=>onDelete(getItemValue(user, index_key))}>Delete</DropdownItem>:null
                     }
                     </DropdownMenu>
                 </Dropdown>

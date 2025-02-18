@@ -42,7 +42,7 @@ export default function OurTeam(){
                         animate={isCardInView ? {opacity : 1, transform : "translateX(0)"} : {opacity : 0, transform : "translateX(-100%)"}}
                         exit={{opacity : 0, transform : "translateX(-100%)"}}
                         className="bg-white border-primaryYellow border-2 w-[40%] h-[20vh] md:h-[50vh]  self-center p-4 rounded-md">
-                        <Image src={`/images/person/${member[getIdx(+1)].id}.png`} width={480} height={640} alt="profile" className="w-full h-full object-cover grayscale object-top"/>
+                        <Image src={`/images/person/${member[getIdx(+1)].name}.png`} width={480} height={640} alt="profile" className="w-full h-full object-cover grayscale object-top"/>
                     </motion.div>
 
                     <motion.div 
@@ -52,7 +52,7 @@ export default function OurTeam(){
                         transition={isCardInView ?{delay : .2}: {delay : 0}}
                         exit={{opacity : 0, transform : "translateX(-100%)"}}
                         className="bg-white border-primaryYellow border-2 w-[60%] h-[25vh] md:h-[60vh] p-4 self-center ml-[-2rem] rounded-md">
-                        <Image src={`/images/person/${member[getIdx()].id}.png`} width={480} height={640} alt="profile" className="w-full h-full object-cover grayscale md:object-contain object-top"/>
+                        <Image src={`/images/person/${member[getIdx()].name}.png`} width={480} height={640} alt="profile" className="w-full h-full object-cover grayscale md:object-contain object-top"/>
                     </motion.div>
                 </div>
 
@@ -78,7 +78,7 @@ export default function OurTeam(){
                             animate={{opacity : 1 , transform : "translateX(0)"}}
                             transition={{delay : .1 , duration : .2}}
                             exit={{opacity : 0 , transform : "translateX(-100%)"}}
-                            className="text-black font-bold text-[.75rem] md:text-lg ">{member[idx].role}</motion.h1>
+                            className="text-black font-bold text-[.75rem] md:text-lg ">{member[idx].name??""}</motion.h1>
                         </div>
                         <motion.p 
                         key={"desc" +idx}
@@ -104,7 +104,7 @@ export default function OurTeam(){
                     transition={isCardInView ?{delay : .2}: {delay : 0}}
                     exit={{opacity : 0, transform : "translateX(-100%)"}}
                     className="hidden md:inline absolute right-8 bg-white border-primaryYellow border-2 w-[20%] h-[25vh] md:h-[50vh] p-4 self-center ml-[-2rem] rounded-md">
-                    <Image src={`/images/person/${member[getIdx(-1)].id}.png`} width={480} height={640} alt="profile" className="w-full h-full object-cover grayscale md:object-contain object-top"/>
+                    <Image src={`/images/person/${member[getIdx(-1)].name}.png`} width={480} height={640} alt="profile" className="w-full h-full object-cover grayscale md:object-contain object-top"/>
                 </motion.div>
             </div>
        

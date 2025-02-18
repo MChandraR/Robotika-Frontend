@@ -102,7 +102,7 @@ export default function Page(){
     return (
         <AdminLayout>
             <div className="px-4">
-                <div className="mb-8 uppercase text-primaryYellow font-bold text-2xl">Update data postingan baru</div>
+                <div className="mb-8 uppercase text-primaryYellow font-bold text-2xl">Tambahkan data postingan baru</div>
                 <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-8 ">
                     <div className="flex flex-col ">
                         <div className="text-darkerBlue font-bold">Judul Postingan</div>

@@ -9,6 +9,9 @@ import ClickOutside from "@/components/ClickOutside";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { menuGroupType } from "@/type/menuGrupType";
 import { FaNewspaper } from "react-icons/fa6";
+import { FaUser } from "react-icons/fa";
+import { FaFingerprint } from "react-icons/fa";
+
 interface SidebarProps {
   sidebarOpen: boolean;
   setSidebarOpen: (arg: boolean) => void;
@@ -57,6 +60,17 @@ const menuGroups:menuGroupType[] = [
         ),
         label: "Postingan",
         route: "/admin/post",
+      },
+      {
+        icon: (
+          <FaUser />
+        ),
+        label: "Anggota",
+        route: "#",
+        children : [
+          { icon : <FaUser/> , label : "Anggota", route : "/admin/anggota" },
+          { icon : <FaFingerprint />, label : "Jabatan", route : "/admin/jabatan" },
+        ]
       }
     ],
   },

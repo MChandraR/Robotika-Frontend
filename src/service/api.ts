@@ -7,8 +7,10 @@ import {
     LoginInterface,  
     LoginResponse,
     PostResponse,
+    MemberResponse,
     AddPost,
-    EditPost
+    EditPost,
+    MemberAdd
 } from "@/type/apiInterface";
 import { getCookies } from "@/hooks/useAuth";
 
@@ -63,3 +65,11 @@ export const Post = {
     deletePost : (param : {id : string}) : Promise<PostResponse> => 
         handleRequest<PostResponse>(axios.delete(`${baseUrl}/post?id=${param.id}`, axiosConfig))
 }
+
+export const Member = {
+    getMember:():Promise<MemberResponse>=> 
+        handleRequest<MemberResponse>(axios.get(`${baseUrl}/member`)),
+
+    addMember:(param : MemberAdd):Promise<MemberResponse>=>
+        handleRequest<MemberResponse>(axios.post(`${baseUrl}/member`, param, axiosConfig))
+};

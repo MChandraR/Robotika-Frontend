@@ -1,5 +1,5 @@
-import { Member } from "@/type/member";
-const member:Member[] = [
+import { MemberType } from "@/type/member";
+const member:MemberType[] = [
     {
         id : 2201010012,
         name : "Raja Partahi Hutasoit",
@@ -99,4 +99,4 @@ const member:Member[] = [
 ];
 
 export default member;
-export type {Member};
+export type {MemberType};

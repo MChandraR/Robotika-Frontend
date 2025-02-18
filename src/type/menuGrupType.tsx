@@ -1,3 +1,4 @@
+import React from "react"
 
 interface menuItems{
     icon? : React.JSX.Element
@@ -5,7 +6,8 @@ interface menuItems{
     route? : string,
     children? : {
         label : string,
-        route : string
+        route : string,
+        icon? : React.JSX.Element
     }[]
 }
 interface menuGroupType  {

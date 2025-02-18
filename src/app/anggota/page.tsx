@@ -88,7 +88,7 @@ export default function Page(){
                             className="self-center rounded-full object-cover object-top grayscale w-[calc(48vw_-_2rem)] h-[calc(48vw_-_2rem)] md:w-[calc(18vw_-_2rem)] md:h-[calc(18vw_-_2rem)] bg-gray-100"
                             src={`/images/person/${item.id}.png`} width={480} height={480} alt="member-photo"/>
                             <h1 className="font-bold text-lg md:text-xl text-primaryYellow text-center">{item.name}</h1>
-                            <h1 className="font-bold text-sm md:text-sm text-primaryYellow text-center">{item.role}</h1>
+                            <h1 className="font-bold text-sm md:text-sm text-primaryYellow text-center">{item.name??""}</h1>
                         </div>
                     ))}
                 </div>

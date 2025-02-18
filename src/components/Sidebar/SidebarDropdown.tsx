@@ -4,14 +4,15 @@ import { usePathname } from "next/navigation";
 
 const SidebarDropdown = ({ item }: {item : {
     label : string,
-    route : string
+    route : string,
+    icon? : React.JSX.Element
 }[]}) => {
   const pathname = usePathname();
 
   return (
     <>
       <ul className="mb-5.5 mt-4 flex flex-col gap-2.5 pl-6">
-        {item.map((item: { label : string, route : string}, index: number) => (
+        {item.map((item: { label : string, route : string, icon? : React.JSX.Element}, index: number) => (
           <li key={index}>
             <Link
               href={item.route}
@@ -19,6 +20,7 @@ const SidebarDropdown = ({ item }: {item : {
                 pathname === item.route ? "text-white" : ""
               }`}
             >
+              {item.icon??""}
               {item.label}
             </Link>
           </li>
