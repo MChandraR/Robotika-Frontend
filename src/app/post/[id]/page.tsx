@@ -1,5 +1,4 @@
 "use client"
-import berita from "@/data/dummy/berita";
 import Image from "next/image";
 import { FiCalendar } from "react-icons/fi";
 import  DOMPurify  from "dompurify";
@@ -12,6 +11,7 @@ import { useParams } from "next/navigation";
 
 export default function Page(){
     const [post, setPost] = useState<PostType|null>(null);
+    const [newPost, setNewPost] = useState<PostType[]|null>(null);
     const param = useParams<{id : string}>();
 
     useEffect(()=>{
@@ -19,6 +19,12 @@ export default function Page(){
             if(response.data) setPost(response.data?.[0]);
         });
     },[param.id]);
+
+    useEffect(()=>{
+        Post.getPost({limit: 4}).then((response)=>{
+            if(response.status === 200 && response.data) setNewPost(response.data);
+        });
+    });
 
     return (
         <MainLayout>
@@ -36,14 +42,14 @@ export default function Page(){
                     <div className="flex flex-col gap-4">
                         <div className="flex gap-2 item-center">
                             <FiCalendar className="text-primaryBlue text-2xl"/>
-                            <div className="text-primaryBlue font-bold">{new Date(post?.date??0).toUTCString()}</div>
+                            <div className="text-primaryBlue font-bold">{new Date(post?.date??0).toDateString()}</div>
                         </div>
                         <h1 className="text-primaryYellow uppercase text-3xl tracking-wider font-bold min-h-0 max-h-[7rem] overflow-hidden ">{post?.title}</h1>
                         {/* Lis tag */}
                         <div className="flex gap-2">
                             {
                                 post?.tag?
-                                post?.tag?.split(";").map((item,key)=>(
+                                post?.tag?.split(";").filter((item)=>item.replace(" ","")!=="").map((item,key)=>(
                                     <div key={key} className="bg-primaryBlue px-2 font-bold rounded-sm text-white tracking-wider">#{item}</div>
                                 )):
                                 <div className="bg-primaryBlue px-2 font-bold rounded-sm text-white tracking-wider">#{post?.category??"Umum"}</div>
@@ -64,17 +70,17 @@ export default function Page(){
                 <div className="text-primaryYellow text-left font-bold text-xl md:text-3xl pt-2">Lihat postingan lainnya</div>
                 {/* Postingan lainnya */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 md:gap-y-2 mt-8">
-                    {berita.slice(-4).map((item,key)=>(
+                    {newPost?.map((item,key)=>(
                         <div className="grid grid-cols-[40%_60%] md:grid-cols-[30%_70%] gap-2 md:gap-4" key={key}>
-                            <Image src={`/images/post/image_${item.id}.png`} alt="pos_image" width={640} height={480} className="h-full"></Image>
+                            <Image src={`${postStorageUrl}/${item.image}`} alt="pos_image" width={640} height={480} className="h-full"></Image>
                             <div className="flex flex-col gap-1 md:gap-2">
                                 <div className="font-bold uppercase bg-primaryYellow w-min px-2 md:px-4 text-primaryBlue text-xs md:text-sm ">{item.category}</div>
                                 <Link href={`/post/${item.id}`} className="text-darkerBlue font-bold text-md max-h-[3rem] overflow-hidden">{item.title}</Link>
                                 <div className="flex gap-2 item-center">
                                     <FiCalendar className="text-primaryBlue text-sm md:text-xl"/>
-                                    <div className="text-primaryBlue text-xs md:text-sm font-bold">{new Date(item.date??0).toUTCString()}</div>
+                                    <div className="text-primaryBlue text-xs md:text-sm font-bold">{new Date(item.date??0).toDateString()}</div>
                                 </div>
-                                <p className="text-sm max-h-[2.5rem] overflow-hidden ">{item.title}</p>
+                                <p className="text-sm max-h-[2.5rem] overflow-hidden " dangerouslySetInnerHTML={{__html : DOMPurify.sanitize(item.content)}}></p>
                             </div>
                         </div>
                     ))}

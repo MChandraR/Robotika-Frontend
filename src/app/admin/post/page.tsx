@@ -5,12 +5,12 @@ import MyTable from "@/components/Element/MyTable"
 import { useEffect, useState } from "react";
 import { PostType } from "@/type/postType";
 import { Post } from "@/service/api";
-import { showConfirmDialog, showDialog } from "@/components/Utils/alertUtils";
+import { showConfirmDialog, showToast } from "@/components/Utils/alertUtils";
 
 export default function Page(){
   const [post, setPost] = useState<PostType[]|null>(null);
   useEffect(()=>{
-    Post.getPost().then((response)=>{
+    Post.getPost({filter : "1"}).then((response)=>{
       if(response?.data){
         setPost(response?.data);
       } 
@@ -23,7 +23,7 @@ export default function Page(){
     if(!acc) return;
     Post.deletePost({id : id }).then((response)=>{
       const success = response.status == 200 ;
-      showDialog( success ? "success" : "error",success ? "Berhasil" : "Error", response.message  );
+      showToast( success ? "success" : "error",response.message??"Error : Kesalahan saat menghapus data !" );
       if(success)      setPost((prev) => prev ? prev.filter((item) => item.id !== id) : prev);
 
     });
@@ -33,6 +33,7 @@ export default function Page(){
     {name: "ID", uid: "id", sortable: true, visible : false},
     {name: "TITLE", uid: "title", sortable: true, visible : true},
     {name: "TANGGAL", uid: "date", sortable: true, visible : true},
+    {name: "KATEGORI", uid: "category", sortable: true, visible : true},
     {name: "ACTION", uid: "actions", sortable: false, visible : true},
   ];
 

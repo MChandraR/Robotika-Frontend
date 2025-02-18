@@ -12,6 +12,12 @@ import {
 } from "@/type/apiInterface";
 import { getCookies } from "@/hooks/useAuth";
 
+
+const axiosConfig = {
+    headers: {
+        Authorization : "Bearer " + getCookies("token")
+    }
+};
 const handleRequest = async <T>(request: Promise<AxiosResponse<T>>): Promise<T|{status : number, message : string}>=> {
     try {
         const response = await request;
@@ -31,21 +37,29 @@ const handleRequest = async <T>(request: Promise<AxiosResponse<T>>): Promise<T|{
     }
 };
 
+
 export const Auth = {
     Login: (params: LoginInterface): Promise<LoginResponse> => 
         handleRequest<LoginResponse>(axios.post(`${baseUrl}/auth`, params))
 };
 
 export const Post = {
-    getPost : (param? : {id? : string|null }) : Promise<PostResponse> =>
-        handleRequest<PostResponse>(axios.get(`${baseUrl}/post${param?.id? "?id="+param?.id : ""}`)),
+    getPost : (param? : {id? : string|null, filter?:string , limit? : number, order?: "ASC"|"DESC"}) : Promise<PostResponse> =>
+        handleRequest<PostResponse>(
+            axios.get(`${baseUrl}/post?`+
+                `${param?.id? "id="+param?.id : ""}`+
+                `${param?.filter? "filter="+param?.filter : ""}`+
+                `${param?.order? "order="+param?.order : ""}`+
+                `${param?.limit? "limit="+param?.limit : ""}`
+            )
+        ),
 
     addPost: (param : AddPost) : Promise<PostResponse> => 
-        handleRequest<PostResponse>(axios.post(`${baseUrl}/post`, param, {headers: {Authorization : "Bearer " + getCookies("token")}})),
+        handleRequest<PostResponse>(axios.post(`${baseUrl}/post`, param, axiosConfig )),
 
     updatePost : (param : EditPost) : Promise<PostResponse> => 
-        handleRequest<PostResponse>(axios.put(`${baseUrl}/post`, param , {headers: {Authorization : "Bearer " + getCookies("token")}})),
+        handleRequest<PostResponse>(axios.put(`${baseUrl}/post`, param ,  axiosConfig)),
 
     deletePost : (param : {id : string}) : Promise<PostResponse> => 
-        handleRequest<PostResponse>(axios.delete(`${baseUrl}/post?id=${param.id}`,{headers: {Authorization : "Bearer " + getCookies("token")}}))
+        handleRequest<PostResponse>(axios.delete(`${baseUrl}/post?id=${param.id}`, axiosConfig))
 }

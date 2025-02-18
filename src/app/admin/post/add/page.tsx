@@ -45,10 +45,20 @@ export default function Page(){
                 image : parser.result as string ?? "", 
                 url : url??""
             }).then((response)=>{
+
                 showDialog(
                     response.status == 200 ? "success" : "error",
                     response.status == 200 ? "Berhasil" : "Gagal",
                     response.message);
+                if(response.status===200){
+                    setTitle("");
+                    setContent("");
+                    setTag("");
+                    setDate("");
+                    setImage(null);
+                    setCategory("");
+                    setUrl("");
+                }
             });
 
 
