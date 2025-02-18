@@ -15,9 +15,11 @@ import {
 import { getCookies } from "@/hooks/useAuth";
 
 
-const axiosConfig = {
-    headers: {
-        Authorization : "Bearer " + getCookies("token")
+const axiosConfig = ()=>{
+    return {
+        headers: {
+            Authorization : "Bearer " + getCookies("token")
+        }
     }
 };
 const handleRequest = async <T>(request: Promise<AxiosResponse<T>>): Promise<T|{status : number, message : string}>=> {
@@ -57,13 +59,13 @@ export const Post = {
         ),
 
     addPost: (param : AddPost) : Promise<PostResponse> => 
-        handleRequest<PostResponse>(axios.post(`${baseUrl}/post`, param, axiosConfig )),
+        handleRequest<PostResponse>(axios.post(`${baseUrl}/post`, param, axiosConfig() )),
 
     updatePost : (param : EditPost) : Promise<PostResponse> => 
-        handleRequest<PostResponse>(axios.put(`${baseUrl}/post`, param ,  axiosConfig)),
+        handleRequest<PostResponse>(axios.put(`${baseUrl}/post`, param ,  axiosConfig() )),
 
     deletePost : (param : {id : string}) : Promise<PostResponse> => 
-        handleRequest<PostResponse>(axios.delete(`${baseUrl}/post?id=${param.id}`, axiosConfig))
+        handleRequest<PostResponse>(axios.delete(`${baseUrl}/post?id=${param.id}`, axiosConfig() ))
 }
 
 export const Member = {
@@ -71,5 +73,5 @@ export const Member = {
         handleRequest<MemberResponse>(axios.get(`${baseUrl}/member`)),
 
     addMember:(param : MemberAdd):Promise<MemberResponse>=>
-        handleRequest<MemberResponse>(axios.post(`${baseUrl}/member`, param, axiosConfig))
+        handleRequest<MemberResponse>(axios.post(`${baseUrl}/member`, param, axiosConfig() ))
 };
