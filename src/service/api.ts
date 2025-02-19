@@ -2,6 +2,7 @@ import axios, { AxiosResponse } from "axios";
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 export const storageUrl = "https://robotika.s3.ap-southeast-2.amazonaws.com";
 export const postStorageUrl = `${storageUrl}/public/post`;
+export const memberStorageUrl = `${storageUrl}/public/member`;
 
 import { 
     LoginInterface,  

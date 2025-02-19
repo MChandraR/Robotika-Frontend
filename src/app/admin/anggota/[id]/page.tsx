@@ -8,7 +8,7 @@ import FileInput from "@/components/Element/FileInput";
 import { Member } from "@/service/api";
 import { showDialog } from "@/components/Utils/alertUtils";
 import { useParams } from "next/navigation";
-import { postStorageUrl } from "@/service/api";
+import { memberStorageUrl } from "@/service/api";
 
 export default function Page(){
 
@@ -26,7 +26,7 @@ export default function Page(){
             if(response.data){
                 const data = response.data[0];
                 setName(data.name??"");
-                setImage(`${postStorageUrl}/${data.image??""}`);
+                setImage(`${memberStorageUrl}/${data.image??""}`);
                 setPeriod(data.period? String(data.period) : String(new Date().getFullYear()) );
                 setRole( typeof data.role === "object" && "name" in data.role ? data.role.name??"" : "");
                 setRoleType( typeof data.role === "object" && "type" in data.role ? data.role.type??"" : "");
