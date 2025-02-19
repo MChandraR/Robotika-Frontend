@@ -42,7 +42,7 @@ export default function Page(){
     }
 
     useEffect(()=>{
-       getMember(new Date().getFullYear());
+       if(year===0)getMember(new Date().getFullYear());
     },[getMember]);
    
 
