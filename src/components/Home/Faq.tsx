@@ -18,9 +18,9 @@ export default function Faq(){
     };
 
     return (
-     <div ref={ref} className="bg-white p-4 md:p-8 pb-10 md:pb-16">
-        <div className="w-[5rem] h-[4px] bg-primaryYellow mb-1"></div>
-        <h1 className="text-primaryYellow text-3xl font-bold tracking-wider w-min whitespace-nowrap">FAQ</h1>
+     <div ref={ref} className="relative bg-white p-4 md:p-8 pb-10 md:pb-16">
+        <div className="w-[5rem] h-[5px] rounded-full bg-primaryYellow mb-1"></div>
+        <h1 className="text-primaryYellow text-4xl font-bold tracking-wider w-min whitespace-nowrap">FAQ</h1>
         {/* List pertanyaan */}
         <div className="grid grid-cols-1 mt-4 md:mt-8">
           {FaQ.map((item,key)=>(

@@ -1,9 +1,13 @@
 "use client"
 import { Ship , Kraken} from "@/assets/images/icon";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { FaArrowLeft } from "react-icons/fa";
+
 
 export default function NotFound(){
+    const router = useRouter();
     const[x, setX] = useState(-100);
     useEffect(()=>{
         const inter = setInterval(()=>{
@@ -17,9 +21,15 @@ export default function NotFound(){
 
     return (
         <div className="relative h-[100dvh] w-full text-gray-500 flex flex-col item-center justify-center overflow-hidden">
-            <div className="relative text-black mt-1/2 self-center">
+            <div className="relative text-black mt-1/2 self-center flex flex-col">
                 <h2 className="text-center text-darkestBlue text-[8rem] font-bold">404</h2>
                 <h2 className="text-center text-darkestBlue text-md font-bold">Ups...Sepertinya halaman tidak ditemukan</h2>
+                <div className="flex gap-4 justify-center item-center bg-primaryYellow px-4 rounded-lg self-center mt-8 w-fit cursor-pointer" onClick={()=>router.back()}>
+                    <FaArrowLeft className="self-center"/>
+                    <div className="font-bold text-darkerBlue">
+                        Cabut dari sini
+                    </div>
+                </div>
             </div>
             <Image
                 src={Ship}

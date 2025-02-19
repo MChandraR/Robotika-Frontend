@@ -57,16 +57,17 @@ export default function Divisi(){
     }, [isInViews]);
 
     return (
-      <div className="relative p-4 md:p-8 bg-white"  ref={ref} >
+      <div className="relative pt-12 p-4 md:p-8 bg-white"  ref={ref} >
+        <div className="w-[5rem] h-[6px] rounded-full bg-primaryYellow mb-1"></div>
         <motion.h1 
         ref={ref} 
         initial={{opacity : 0, transform : "translateX(-100%)"}}
         animate={isInView ? {opacity : 1, transform : "translateX(0)"} : {opacity : 0 , transform : "translatex(-100%)"}}
         transition={isInView ? {delay : .2 } : {delay : 0}}
         exit={{opacity : 0 , transform : "translateX(-100%)}"}}
-        className="text-primaryYellow text-3xl font-bold tracking-wider border-t-4 border-primaryYellow w-min pr-4">DIVISI</motion.h1>
+        className="text-primaryYellow text-4xl font-bold tracking-wider w-min pr-4">DIVISI</motion.h1>
         <div ref={scrollContainerRef} 
-        className="scroll-smooth overflow-hidden md:overflow-x-auto overflow-y-hidden w-full md:w-[calc(100vw_-_6rem)] scrollbar-thumb-primaryYellow pb-8 md:pb-4 scrollbar-thumb- scrollbar-track-transparent scrollbar-thin">
+        className="scroll-smooth pt-4 overflow-hidden md:overflow-x-auto overflow-y-hidden w-full md:w-[calc(100vw_-_6rem)] scrollbar-thumb-primaryYellow pb-8 md:pb-4 scrollbar-thumb- scrollbar-track-transparent scrollbar-thin">
           <div className="grid grid-cols-2 md:flex md:flex-nowrap gap-[1.5%] mt-4">
           {
             divisi.map((item, key )=>(

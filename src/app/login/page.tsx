@@ -3,28 +3,47 @@ import Navbar from "@/components/Navbar";
 import { motion } from "motion/react";
 import { FaLock, FaUser } from "react-icons/fa";
 import { Inter } from "next/font/google";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Auth } from "@/service/api";
+import { showDialog } from "@/components/Utils/alertUtils";
+import { setCookies, useAuth } from "@/hooks/useAuth";
+import { usePathname, useRouter } from "next/navigation";
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Page(){
+    const router = useRouter();
+    const pathname = usePathname(); 
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
+    const [token ] = useAuth();
 
+    useEffect(() => {
+        if (typeof window !== "undefined" && token && pathname === "/login") {
+            router.replace("/admin"); 
+        }
+    }, [token, pathname, router]); 
+    
     const HandleSubmit = async()=>{
         if(username === "" || password ===""){
-            alert("Harap isi fiel dengan lengkap !");
+            showDialog("error", "Login Gagal","Harap isi username dan password !");
+
+
             return;
         }
-        Auth.Login({email: username, password : password}).then((response)=>{
+        Auth.Login({username: username, password : password}).then((response)=>{
             if("data" in response){
-                alert(response.message);
-                return;
+                showDialog("success", "Berhasil",response.message??"");
+                localStorage.setItem("username", response.data?.username??"undefined");
+                setCookies("token", response?.data?.token ?? "", 3600000);
+                return router.push("/admin");;
             }
-            alert(response.status);
+            showDialog("error", "Login Gagal", response.message??"");
+
         });
     };
+
+  
 
 
     return(
@@ -42,10 +61,10 @@ export default function Page(){
                     <div className="font-bold tracking-wider text-xl pt-4">Password</div>
                     <div className="relative flex gap-4 ">
                         <FaLock className="absolute self-center left-4"/>
-                        <input value={password} onChange={(e)=>setPassword(e.target.value)} type="password" className="pl-10 pr-4 bg-[#F6F6F6] text-[#6E6E6E] border-primaryYellow border-[1px] rounded-full leading-10 w-full" placeholder="Masukkan username"/>
+                        <input value={password} onChange={(e)=>setPassword(e.target.value)} type="password" className="pl-10 pr-4 bg-[#F6F6F6] text-[#6E6E6E] border-primaryYellow border-[1px] rounded-full leading-10 w-full" placeholder="Masukkan password"/>
                     </div>
 
-                    <motion.div onClick={()=>HandleSubmit()} className="mt-8 text-darkerBlue text-center border-primaryYellow bg-primaryYellow border-[1px] font-bold text-xl rounded-full leading-[3rem] w-full">Login</motion.div>
+                    <motion.div onClick={()=>HandleSubmit()} className="mt-8 text-darkerBlue text-center border-primaryYellow bg-primaryYellow border-[1px] font-bold text-xl rounded-full leading-[3rem] w-full cursor-pointer">Login</motion.div>
                 </div>
             </div>
         </div>

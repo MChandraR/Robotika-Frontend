@@ -1,7 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
+import Loader from "../common/Loaders";
+import { useAuth } from "@/hooks/useAuth";
 
 export default function AdminLayout({
   children,
@@ -9,8 +11,13 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [token] = useAuth();
+  useEffect(()=>{
+    // if(!token)router.replace("/login");
+  },[token]);
   return (
     <>
+      {token ? 
       <div className="relative flex md:grid md:grid-cols-[20vw_80vw]">
         {/* <!-- ===== Sidebar Start ===== --> */}
         <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
@@ -32,6 +39,8 @@ export default function AdminLayout({
         </div>
         {/* <!-- ===== Content Area End ===== --> */}
       </div>
+      : <Loader></Loader>  
+    }
       {/* <!-- ===== Page Wrapper End ===== --> */}
     </>
   );

@@ -22,11 +22,11 @@ export default function Home() {
       <div className="relative w-full overflow-hidden">
           {/* Background website  */}
           <Image 
-            className="-z-10 fixed w-full md:h-auto h-[100vh] object-cover"
+            className="z-0 fixed w-full md:h-auto h-[100vh] object-cover"
             src={GedungA} alt="0" quality={100} 
           />
 
-        <div className=" h-[100dvh] md:h-[100dvh] relative">
+        <div className=" h-[100dvh] md:h-[100dvh] relative bg-transparent">
             {/* Bagian atas tempat slogan dan logo // */}
             <div className="relative h-[90%] flex flex-col align-center justify-center md:pt-40 pb-10 z-0 w-full">
               <center className="h-min self-center justify-center mt-0">
@@ -73,7 +73,7 @@ export default function Home() {
           <Berita/>
 
           {/* Bagian Sponsor */}
-          <div className="px-4 py-8 bg-white min-h-[50vh]" id="sponsorship">
+          <div className="relative px-4 py-8 bg-white min-h-[50vh]" id="sponsorship">
             <center>
               <h2 className="text-primaryYellow font-bold tracking-wider border-b-2 w-min px-16 py-2 text-xl border-primaryYellow">Sponsorship</h2>
               <p className="p-4">-Belum ada sponsor-</p>
