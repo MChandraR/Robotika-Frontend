@@ -49,10 +49,22 @@ export interface MemberResponse{
 }
 
 export interface MemberAdd{
+    order? :number,
     name : string,
     image : string,
     period : number,
     role : string,
     role_type : string,
     description : string,
+}
+
+export interface MemberUpdate{
+    id : string,
+    order? : number,
+    name? : string,
+    image? : string,
+    period? : number,
+    role? : string,
+    role_type? : string,
+    description? : string,
 }

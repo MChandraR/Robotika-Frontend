@@ -18,6 +18,7 @@ export default function Page(){
     const [role , setRole]  = useState("");
     const [roleType , setRoleType]  = useState("");
     const [description , setDescription]  = useState("");
+    const [order , setOrder]  = useState("0");
     const param = useParams<{id : string}>();
     
 
@@ -31,6 +32,7 @@ export default function Page(){
                 setRole( typeof data.role === "object" && "name" in data.role ? data.role.name??"" : "");
                 setRoleType( typeof data.role === "object" && "type" in data.role ? data.role.type??"" : "");
                 setDescription(data.description??"");
+                setOrder(String(data.order)??"");
             }
         });
     },[param.id]);
@@ -49,9 +51,11 @@ export default function Page(){
             parser.onload = async ()=>{
                 console.log(parser.result);
                 Member.updateMember({
+                    id : param.id,
                     name : name??"",
                     image : parser.result as string??"",
                     period : parseInt(period),
+                    order : parseInt(order)??0,
                     role : role,
                     role_type : roleType,
                     description : description
@@ -67,8 +71,9 @@ export default function Page(){
 
         }else{
             Member.updateMember({
+                id : param.id,
                 name : name??"",
-                image : parser.result as string??"",
+                order : parseInt(order)??0,
                 period : parseInt(period),
                 role : role,
                 role_type : roleType,
@@ -118,6 +123,12 @@ export default function Page(){
                             <option value="pengurus">Pengurus</option>
                             <option value="anggota">Anggota</option>
                         </select>
+
+                        <div className="mt-4 text-darkerBlue font-bold">Order atau Level</div>
+                        <div className="text-darkerBlue font">Ini akan menentukan urutan anggota yang ditampilkan</div>
+
+                        <InputField value={order} onChange={(e)=>setOrder(e.target.value)} type="number" className="text-black"/>
+
                     </div>
                 </div>
 

@@ -5,7 +5,7 @@ import MyTable from "@/components/Element/MyTable"
 import { useEffect, useState } from "react";
 import { MemberType } from "@/type/member";
 import { Member } from "@/service/api";
-import { showConfirmDialog } from "@/components/Utils/alertUtils";
+import { showConfirmDialog, showDialog } from "@/components/Utils/alertUtils";
 
 export default function Page(){
   const [member, setMember] = useState<MemberType[]|null>(null);
@@ -22,12 +22,10 @@ export default function Page(){
     console.log(id);
     const acc = await showConfirmDialog("Hapus data " , "Apakah yakin ingin menghapus data ? ");
     if(!acc) return;
-    // Member.deletePost({id : id }).then((response)=>{
-    //   const success = response.status == 200 ;
-    //   showToast( success ? "success" : "error",response.message??"Error : Kesalahan saat menghapus data !" );
-    //   if(success)      setPost((prev) => prev ? prev.filter((item) => item.id !== id) : prev);
-
-    // });
+    Member.deleteMember(id).then((response)=>{
+        showDialog(response.status === 200 ? "success" : "error", response.message??"" );
+        if(response.status == 200)setMember((items) => items ? items?.filter((item)=>item.id != id): member);
+    });
   }
 
   const columns = [

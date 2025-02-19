@@ -14,11 +14,12 @@ export default function Page(){
     const [role , setRole]  = useState("");
     const [roleType , setRoleType]  = useState("");
     const [description , setDescription]  = useState("");
+    const [order , setOrder]  = useState("0");
 
     const handleSubmit = ()=>{
         console.log("Proses");
         
-        if(name==="" || period === "" || role === "" || !image || roleType === "" || description === "" ){
+        if(name==="" || period === "" || order==="" || role === "" || !image || roleType === "" || description === "" ){
             showDialog("error", "Error", "Harap isi data lengkap !");
             return;
         }
@@ -28,6 +29,7 @@ export default function Page(){
         parser.onload = async ()=>{
             Member.addMember({
                 name : name,
+                order : parseInt(order)??0,
                 image : parser.result as string ?? "", 
                 period : parseInt(period)??0,
                 role : role,
@@ -89,6 +91,11 @@ export default function Page(){
                             <option value="pengurus">Pengurus</option>
                             <option value="anggota">Anggota</option>
                         </select>
+
+                        <div className="mt-4 text-darkerBlue font-bold">Order atau Level</div>
+                        <div className="text-darkerBlue font">Ini akan menentukan urutan anggota yang ditampilkan</div>
+                        <InputField value={order} onChange={(e)=>setOrder(e.target.value)} type="number" className="text-black"/>
+
                     </div>
                 </div>
 

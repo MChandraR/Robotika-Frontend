@@ -11,7 +11,8 @@ import {
     MemberResponse,
     AddPost,
     EditPost,
-    MemberAdd
+    MemberAdd,
+    MemberUpdate
 } from "@/type/apiInterface";
 import { getCookies } from "@/hooks/useAuth";
 
@@ -52,10 +53,10 @@ export const Post = {
     getPost : (param? : {id? : string|null, filter?:string , limit? : number, order?: "ASC"|"DESC"}) : Promise<PostResponse> =>
         handleRequest<PostResponse>(
             axios.get(`${baseUrl}/post?`+
-                `${param?.id? "id="+param?.id : ""}`+
-                `${param?.filter? "filter="+param?.filter : ""}`+
-                `${param?.order? "order="+param?.order : ""}`+
-                `${param?.limit? "limit="+param?.limit : ""}`
+                `${param?.id? "&id="+param?.id : ""}`+
+                `${param?.filter? "&filter="+param?.filter : ""}`+
+                `${param?.order? "&order="+param?.order : ""}`+
+                `${param?.limit? "&limit="+param?.limit : ""}`
             )
         ),
 
@@ -70,16 +71,21 @@ export const Post = {
 }
 
 export const Member = {
-    getMember:(param? : {id?:string}):Promise<MemberResponse>=> 
+    getMember:(param? : {id?:string, period ? : number , order ? : "ASC" | "DESC" }):Promise<MemberResponse>=> 
         handleRequest<MemberResponse>(
             axios.get(`${baseUrl}/member?`+
-                `${param?.id? "id="+param.id : ""}`
+                `${param?.id? "&id="+param.id : ""}` +
+                `${param?.order? "&order="+param.order : ""}` +
+                `${param?.period? "&period="+param.period : ""}`
             )
         ),
 
     addMember:(param : MemberAdd):Promise<MemberResponse>=>
         handleRequest<MemberResponse>(axios.post(`${baseUrl}/member`, param, axiosConfig() )),
 
-    updateMember : (param : MemberAdd) : Promise<MemberResponse> =>
-        handleRequest<MemberResponse>(axios.put(`${baseUrl}/member`, param, axiosConfig()))
+    updateMember : (param : MemberUpdate) : Promise<MemberResponse> =>
+        handleRequest<MemberResponse>(axios.put(`${baseUrl}/member`, param, axiosConfig())),
+
+    deleteMember : (id : string) : Promise<MemberResponse> => 
+        handleRequest<MemberResponse>(axios.delete(`${baseUrl}/member?id=${id}`,axiosConfig()))
 };
