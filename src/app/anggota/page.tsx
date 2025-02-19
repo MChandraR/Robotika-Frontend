@@ -101,7 +101,7 @@ export default function Page(){
                         </div>
                     </div>
                 </div>
-                <h1 className={`${inter.className}w-full md:w-2/3 uppercase font-extrabold text-5xl text-darkerBlue`}>Meet Our Team and Expert In Robotika UMRAH</h1>
+                <h1 className={`${inter.className}w-full md:w-2/3 uppercase font-extrabold text-5xl text-darkerBlue`}>Meet Our Team and Experts In Robotika UMRAH</h1>
                 <p className={`${inter.className}w-full md:-1/2 text-gray-700 font-extrabold`}>Perkenalkan para anggota kami yang selalu berdedikasi dan terus melakukan riset  demi menghasilkan penemuan baru. </p>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
                     { year ? member?.get(year)?.map((item,key)=>(
