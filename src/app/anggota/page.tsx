@@ -102,6 +102,7 @@ export default function Page(){
                     </div>
                 </div>
 
+                <div>
                 <h1 className={`${inter.className}w-full md:w-2/3 uppercase font-extrabold text-5xl text-darkerBlue`}>Meet Our Team and Expert In Robotika UMRAH</h1>
                 <p className={`${inter.className}w-full md:-1/2 text-gray-700 font-extrabold lg:text-xl`}>Perkenalkan para anggota kami yang selalu berdedikasi dan terus melakukan riset  demi menghasilkan penemuan baru. </p>
 
