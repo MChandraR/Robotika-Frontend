@@ -51,17 +51,17 @@ export default function Page(){
             <Navbar/>
 
             <div className="grid grid-cols-1 md:grid-cols-2 self-center gap-8 md:gap-4 md:mt-32">  
-                <div className={`${inter.className} self-center justify-self-start text-darkerBlue font-bold text-4xl md:text-[4rem] md:leading-[4.5rem] tracking-wider w-[75%] `}>Selamat Datang di Menu Admin</div>
+                <div className={`${inter.className} self-center justify-self-start text-darkerBlue font-bold text-4xl md:text-[4rem] lg:text-[7rem] md:leading-[4.5rem] lg:leading-[7rem] tracking-wider w-[75%] lg:w-[100%] `}>Selamat Datang di Menu Admin</div>
                 <div className="self-center justify-self-center text-primaryYellow flex flex-col gap-2 w-full md:w-2/3">
-                    <div className="font-bold tracking-wider text-xl">Username</div>
+                    <div className="font-bold tracking-wider text-xl lg:text-3xl">Username</div>
                     <div className="relative flex gap-4">
                         <FaUser className="absolute self-center left-4"/>
-                        <input value={username} onChange={(e)=>setUsername(e.target.value)} type="text" className="pl-10 pr-4 bg-[#F6F6F6] text-[#6E6E6E] border-primaryYellow border-[1px] rounded-full leading-10 w-full" placeholder="Masukkan username"/>
+                        <input value={username} onChange={(e)=>setUsername(e.target.value)} type="text" className="pl-10 pr-4 bg-[#F6F6F6] text-[#6E6E6E] border-primaryYellow border-[1px] rounded-full leading-10 lg:leading-16  w-full" placeholder="Masukkan username"/>
                     </div>
-                    <div className="font-bold tracking-wider text-xl pt-4">Password</div>
+                    <div className="font-bold tracking-wider text-xl pt-4 lg:text-3xl">Password</div>
                     <div className="relative flex gap-4 ">
                         <FaLock className="absolute self-center left-4"/>
-                        <input value={password} onChange={(e)=>setPassword(e.target.value)} type="password" className="pl-10 pr-4 bg-[#F6F6F6] text-[#6E6E6E] border-primaryYellow border-[1px] rounded-full leading-10 w-full" placeholder="Masukkan password"/>
+                        <input value={password} onChange={(e)=>setPassword(e.target.value)} type="password" className="pl-10 pr-4 bg-[#F6F6F6] text-[#6E6E6E] border-primaryYellow border-[1px] rounded-full leading-10 lg:leading-16 w-full" placeholder="Masukkan password"/>
                     </div>
 
                     <motion.div onClick={()=>HandleSubmit()} className="mt-8 text-darkerBlue text-center border-primaryYellow bg-primaryYellow border-[1px] font-bold text-xl rounded-full leading-[3rem] w-full cursor-pointer">Login</motion.div>

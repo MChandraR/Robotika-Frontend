@@ -101,16 +101,18 @@ export default function Page(){
                         </div>
                     </div>
                 </div>
-                <h1 className={`${inter.className}w-full md:w-2/3 uppercase font-extrabold text-5xl text-darkerBlue`}>Meet Our Team and Experts In Robotika UMRAH</h1>
-                <p className={`${inter.className}w-full md:-1/2 text-gray-700 font-extrabold`}>Perkenalkan para anggota kami yang selalu berdedikasi dan terus melakukan riset  demi menghasilkan penemuan baru. </p>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
+
+                <div>
+                <h1 className={`${inter.className}w-full md:w-2/3 uppercase font-extrabold text-5xl text-darkerBlue`}>Meet Our Team and Expert In Robotika UMRAH</h1>
+                <p className={`${inter.className}w-full md:-1/2 text-gray-700 font-extrabold lg:text-xl`}>Perkenalkan para anggota kami yang selalu berdedikasi dan terus melakukan riset  demi menghasilkan penemuan baru. </p>
+
                     { year ? member?.get(year)?.map((item,key)=>(
                         <div className="flex flex-col " key={key}>
                             <Image 
                             className="self-center rounded-full object-cover object-top grayscale w-[calc(48vw_-_2rem)] h-[calc(48vw_-_2rem)] md:w-[calc(18vw_-_2rem)] md:h-[calc(18vw_-_2rem)] bg-gray-100"
                             src={`${memberStorageUrl}/${item.image}`} width={480} height={480} alt="member-photo"/>
-                            <h1 className="font-bold text-lg md:text-xl text-primaryYellow text-center">{item.name}</h1>
-                            <h1 className="font-bold text-sm md:text-sm text-primaryYellow text-center">{typeof item.role === "string" ? item.role : item.role?.name}</h1>
+                            <h1 className="font-bold text-lg md:text-xl lg:text-3xl text-primaryYellow text-center">{item.name}</h1>
+                            <h1 className="font-bold text-sm md:text-sm lg:text-2xl text-primaryYellow text-center">{typeof item.role === "string" ? item.role : item.role?.name}</h1>
                         </div>
                     )) : <div></div>}
                 </div>
