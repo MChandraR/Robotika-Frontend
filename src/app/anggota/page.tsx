@@ -42,7 +42,7 @@ export default function Page(){
     }
 
     useEffect(()=>{
-       getMember(new Date().getFullYear());
+       if(year===0)getMember(new Date().getFullYear());
     },[getMember]);
    
 
@@ -101,9 +101,10 @@ export default function Page(){
                         </div>
                     </div>
                 </div>
+
                 <h1 className={`${inter.className}w-full md:w-2/3 uppercase font-extrabold text-5xl text-darkerBlue`}>Meet Our Team and Expert In Robotika UMRAH</h1>
                 <p className={`${inter.className}w-full md:-1/2 text-gray-700 font-extrabold lg:text-xl`}>Perkenalkan para anggota kami yang selalu berdedikasi dan terus melakukan riset  demi menghasilkan penemuan baru. </p>
-                <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-6 mt-8">
+
                     { year ? member?.get(year)?.map((item,key)=>(
                         <div className="flex flex-col " key={key}>
                             <Image 
