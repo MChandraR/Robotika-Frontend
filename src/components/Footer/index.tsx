@@ -7,8 +7,8 @@ import Link from "next/link";
 
 export default function Footer(){
     return (
-        <div className="grid grid-cols-1 gap-8 md:gap-4  md:grid-cols-3 relative w-full h-max bg-darkerBlue p-5 md:p-4 pb-16">
-            <div className="">
+        <div className="grid grid-cols-1 gap-8 md:gap-4  md:grid-cols-3 relative w-full h-max bg-darkerBlue p-5 md:p-4 pb-32">
+            <div className="mb-16">
                 <Image src={LogoRobotika} alt="robotik" className="w-[8rem] md:w-[12rem] mb-4"></Image>
                 <p className="font-semibold tracking-wider ps-0 md:ps-2">Jalan Politeknik, Senggarang, Kec. Tanjungpinang <br />
                 Kota, Kota Tanjung Pinang, <br />Kepulauan Riau 29115</p>

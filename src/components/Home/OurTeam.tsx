@@ -51,8 +51,8 @@ export default function OurTeam(){
                         animate={isCardInView ? {opacity : 1, transform : "translateX(0)"} : {opacity : 0, transform : "translateX(-100%)"}}
                         transition={isCardInView ?{delay : .2}: {delay : 0}}
                         exit={{opacity : 0, transform : "translateX(-100%)"}}
-                        className="bg-white border-primaryYellow border-2 w-[60%] h-[25vh] md:h-[60vh] p-4 self-center ml-[-2rem] rounded-md">
-                        <Image src={`/images/person/${member[getIdx()].id}.png`} width={480} height={640} alt="profile" className="w-full h-full object-cover grayscale md:object-contain object-top"/>
+                        className="bg-white border-primaryYellow border-2 w-[60%] h-[25vh] md:h-[60vh]  p-4 self-center ml-[-2rem] rounded-md">
+                        <Image src={`/images/person/${member[getIdx()].id}.png`} width={480} height={640} alt="profile" className="w-full h-full object-cover grayscale md:object-contain lg:object-cover object-top"/>
                     </motion.div>
                 </div>
 
