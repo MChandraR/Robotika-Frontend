@@ -77,12 +77,12 @@ export default function Divisi(){
               exit={{opacity:0, scale : 0}}
               animate={isInView ? {opacity : 1, scale : 1} : {opacity:0, scale : 0}}
               key={key}
-              className={` relative text-primaryBlue px-2 md:px-4 py-8 rounded-md bg-[url('/images/background/divisi-bg.png')] bg-cover h-[30vh] md:h-[60vh] border-gray-200 border-2 w-full md:w-[calc(25vw_-_2.5rem)] shrink-0`}>
+              className={` relative text-primaryBlue px-2 md:px-4 py-8 rounded-md bg-[url('/images/background/divisi-bg.png')] bg-cover h-[30vh] md:h-[60vh] lg:h-[50vh] border-gray-200 border-2 w-full md:w-[calc(25vw_-_2.5rem)] shrink-0`}>
               <Link href={item.link ?? "/divisi"}   >
               <center>
                 <Image src={item.image} alt="logo_divisi" className="w-1/2" />
-                <h2 className="text-center font-bold text-2xl">{item.name}</h2>
-                <p className="text-black font-bold mt-2 mx-2 md:mx-6 text-[.7rem] md:text-lg">{item.desc}</p>
+                <h2 className="text-center font-bold text-2xl lg:text-4xl">{item.name}</h2>
+                <p className="text-black font-bold mt-2 mx-2 md:mx-6 text-[.7rem] md:text-lg lg:text-2xl">{item.desc}</p>
                 <div className="w-full h-full absolute top-0 left-0 flex align-bottom justify-center">
                     <motion.div whileHover={{scale:1.2}} className="relative w-12 h-12 self-end mb-2 md:mb-6 bg-dark0_15 rounded-full p-2">
                       <Image src={ArrowRight}  alt="arrow-right" />

@@ -25,7 +25,7 @@ export default function ProductView(){
             ref={ref}
             initial={{opacity : 0, transform : "translateX(-100%)"}}
             animate={isInView ? {opacity : 1, transform : "translateX(0)"} : {opacity : 0 , transform : "translatex(-100%)"}}
-            className="text-primaryYellow text-4xl font-bold tracking-wider w-min whitespace-nowrap">PRODUK KAMI</motion.h1>
+            className="text-primaryYellow text-4xl lg:text-5xl font-bold tracking-wider w-min whitespace-nowrap">PRODUK KAMI</motion.h1>
             
             <center className="pb-8 relative pt-16 md:pt-8">
                 <motion.div whileHover={{scale:1.2}} className="absolute top-[40%] left-0 md:left-1/4 w-[3rem] text-primaryYellow text-5xl" onClick={()=>changePage(-1)}>
@@ -44,7 +44,7 @@ export default function ProductView(){
                     animate={isInviewProto ? { x: 0, opacity: 1 } : { x: 0, opacity: 0 }}
                     exit={{ x: -300, opacity: 0 }}>
                     <Image src={Produk[idx].productImage ?? ""} width={1920} height={1080} quality={100} alt="" className="w-[30vw] md:w-[20vw]"/>
-                    <h2  className="text-primaryBlue font-bold text-xl md:text-3xl m-4 tracking-wider" >{Produk[idx].productName}</h2>
+                    <h2  className="text-primaryBlue font-bold text-xl md:text-3xl lg:text-4xl m-4 tracking-wider" >{Produk[idx].productName}</h2>
                     <div className="flex gap-2 align-center justify-center">
                         {
                         Produk[idx].productCategory.map((item,key)=>(
@@ -52,7 +52,7 @@ export default function ProductView(){
                         ))
                         }
                     </div>
-                    <p className="py-4 w-[90%] md:w-[65%] text-gray-700 text-sm md:text-lg">{Produk[idx].productDesc}</p>
+                    <p className="py-4 w-[90%] md:w-[65%] text-gray-700 text-sm md:text-lg lg:text-2xl">{Produk[idx].productDesc}</p>
                 </motion.div>
               
             </center>

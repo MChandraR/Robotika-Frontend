@@ -31,7 +31,7 @@ export default function Main(){
       <div className="bg-white relative text-primaryBlue py-6 p-4 md:p-8 w-full">
         
         <div className="flex">
-          <h1 className="font-bold text-2xl" >Robotika UMRAH</h1>
+          <h1 className="font-bold text-2xl lg:text-3xl" >Robotika UMRAH</h1>
           <Image src={Robot} alt="robot" width={35} height={25} />
         </div>
       
@@ -72,11 +72,11 @@ export default function Main(){
 
           <center>
           <Image 
-            className="relative w-[20rem] mt-4 md:mt-20"
+            className="relative w-[20rem] lg:w-[40rem] mt-4 md:mt-20"
             src={LogoRobotika} alt="logo-robotik"
             />
 
-          <p className="drop-shadow-md shadow-black relative text-white font-bold px-10 md:px-[5rem] py-4 text-md md:text-xl tracking-wider">
+          <p className="drop-shadow-md shadow-black relative text-white font-bold px-10 md:px-[5rem] py-4 text-md md:text-xl lg:text-3xl tracking-wider">
             Robotika UMRAH merupakan UKM yang berfokus pada pengembangan skill dan talenta terutama dibidang robot dan kapal, dengan moto “Melangkah Bersama Menuju Teknologi Masa Depan”  kami akan terus menghasilkan inovasi baru yang tentunya dapat mendorong perkembangan teknologi di masa depan. 
           </p>
           </center>

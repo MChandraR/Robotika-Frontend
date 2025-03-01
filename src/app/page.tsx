@@ -30,10 +30,10 @@ export default function Home() {
             {/* Bagian atas tempat slogan dan logo // */}
             <div className="relative h-[90%] flex flex-col align-center justify-center md:pt-40 pb-10 z-0 w-full">
               <center className="h-min self-center justify-center mt-0">
-                <h1 className="top-0 z-0 p-4 text-white text-xl md:text-3xl text-center font-bold tracking-wide"> UKM Robotika UMRAH<br/>
+                <h1 className="top-0 z-0 p-4 text-white text-xl md:text-3xl lg:text-5xl text-center font-bold tracking-wide"> UKM Robotika UMRAH<br/>
                   &quot;Melangkah Bersama Menuju Teknologi Masa Depan&quot;
                 </h1>
-                <Image src={LogoUmrah} alt="Umrah" className="m-2 md:m-8 w-24 md:w-32"/>
+                <Image src={LogoUmrah} alt="Umrah" className="m-2 md:m-8 w-24 md:w-32 lg:w-48 "/>
               </center>
             </div>
             
@@ -45,7 +45,7 @@ export default function Home() {
                   <motion.div 
                   whileHover={{scale : 1.1}}
                   key={key} 
-                  className={`${ (key>=feature.length-1 && key%2 == 0) ? "col-span-2" : ""} rounded-md md:rounded-none md:bg-primaryYellow w-full text-sm md:text-lg text-center font-bold text-primaryYellow border-2 md:border-0 border-primaryYellow md:text-primaryBlue p-2 whitespace-nowrap`}>
+                  className={`${ (key>=feature.length-1 && key%2 == 0) ? "col-span-2" : ""} rounded-md md:rounded-none md:bg-primaryYellow w-full text-sm md:text-lg lg:text-2xl text-center font-bold text-primaryYellow border-2 md:border-0 border-primaryYellow md:text-primaryBlue p-2 whitespace-nowrap`}>
                     <Link href={item.url}  >
                         {item.title}
                     </Link>

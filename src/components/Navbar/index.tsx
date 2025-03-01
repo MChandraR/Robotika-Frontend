@@ -29,9 +29,9 @@ const Navbar = ()=>{
     return (
         <div key={route} className={`${route==="/" ? bgColor : "bg-darkerBlue"} fixed z-50 top-0 left-0 flex flex-wrap align-middle justify-around py-2 px-2 md:px-4 w-full transition-colors`}>
             <Link className=" w-1/2" href="/">
-                <Image src={LogoRobotika} width={150} height={50} alt="logorobotik"/>
+                <Image src={LogoRobotika} width={150} height={50} alt="logorobotik" className = "lg:w-48"/>
             </Link>
-            <div className="flex text-primaryYellow font-bold flex-row justify-end items-center gap-2 md:gap-4 w-1/2 text-sm md:text-lg">
+            <div className="flex text-primaryYellow font-bold flex-row justify-end items-center gap-2 md:gap-4 w-1/2 text-sm md:text-lg lg:text-2xl ">
                 <Link href={"/"} className="hidden md:block">Beranda</Link>
                 <Link href={"/post"}>Postingan</Link>
                 <Link href={"/anggota"}>Anggota</Link>

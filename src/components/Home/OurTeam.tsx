@@ -29,7 +29,7 @@ export default function OurTeam(){
                 ref={ref}
                 initial={{opacity : 0, transform : "translateX(-100%)"}}
                 animate={isInView ? {opacity : 1, transform : "translateX(0)"} : {opacity : 0 , transform : "translatex(-100%)"}}
-                className="z-10 text-primaryYellow text-4xl font-bold tracking-wider w-min whitespace-nowrap">MEET OUR PEOPLE</motion.h1>
+                className="z-10 text-primaryYellow text-4xl lg:text-5xl font-bold tracking-wider w-min whitespace-nowrap">MEET OUR PEOPLE</motion.h1>
             <div className="relative grid grid-cols-1 md:grid-cols-[40%_50%_10%] mt-4 md:mt-8">
                 <div onClick={()=>changeIdx(1)} className="z-30 flex absolute left-0 item-center justify-center h-full">
                     <GrPrevious className="relative text-primaryBlue self-center text-xl h-min "/>
@@ -61,9 +61,9 @@ export default function OurTeam(){
                     initial={{opacity : 0, transform : "translateX(100%)"}}
                     animate={isCardInView ? {opacity : 1, transform : "translateX(0)"} : {opacity : 0, transform : "translateX(100%)"}}
                     exit={{opacity : 0, transform : "translateX(100%)"}}
-                    className="z-10 md:left-auto md:relative h-[30vh] md:h-[65vh] ml-8  md:-ml-8">
+                    className="z-10 md:left-auto md:relative h-[30vh] md:h-[65vh] ml-8  md:-ml-8 lg:-ml-48">
                     <Image src={"/images/background/profile-card2.png"} alt="profile-card" width={640} height={480} className="rounded-sm w-full h-full" />
-                    <div className="absolute top-0 left-0 p-4 md:p-12 pl-[50%] md:pl-14">
+                    <div className="absolute top-0 left-0 p-4 md:p-12 pl-[50%] md:pl-14 lg:pl-[15rem]">
                         <div className="border-primaryYellow border-l-4 pl-3">
                             <motion.h1 
                             key={"name" +idx}
@@ -71,14 +71,14 @@ export default function OurTeam(){
                             animate={{opacity : 1 , transform : "translateX(0)"}}
                             transition={{delay : 0 , duration : .2}}
                             exit={{opacity : 0 , transform : "translateX(-100%)"}}
-                            className="text-black font-bold text-sm md:text-2xl tracking-wider">{member[idx].name}</motion.h1>
+                            className="text-black font-bold text-sm md:text-2xl lg:text-5xl tracking-wider">{member[idx].name}</motion.h1>
                             <motion.h1 
                             key={"role" +idx}
                             initial={{opacity : 0 , transform : "translateX(-100%)"}}
                             animate={{opacity : 1 , transform : "translateX(0)"}}
                             transition={{delay : .1 , duration : .2}}
                             exit={{opacity : 0 , transform : "translateX(-100%)"}}
-                            className="text-black font-bold text-[.75rem] md:text-lg ">{member[idx].name??""}</motion.h1>
+                            className="text-black font-bold text-[.75rem] md:text-lg lg:text-3xl ">{member[idx].name??""}</motion.h1>
                         </div>
                         <motion.p 
                         key={"desc" +idx}
@@ -86,9 +86,9 @@ export default function OurTeam(){
                         animate={{opacity : 1 , transform : "translateX(0)"}}
                         transition={{delay : .2 , duration : .2}}
                         exit={{opacity : 0 , transform : "translateX(-100%)"}}
-                        className="text-black font-bold text-[.6rem] align-bottom h-full md:text-lg mt-20 drop-shadow-md drop-shadow-white md:mt-12 w-full md:w-2/3">{member[idx].description}</motion.p>
+                        className="text-black font-bold text-[.6rem] align-bottom h-full md:text-lg lg:text-2xl mt-20 drop-shadow-md drop-shadow-white md:mt-12 w-full md:w-2/3">{member[idx].description}</motion.p>
                     </div>
-                    <Image src={LogoRobotika} alt="robotika" className="absolute bottom-4 left-4 md:left-12 w-1/4"></Image>
+                    <Image src={LogoRobotika} alt="robotika" className="absolute bottom-4 left-4 md:left-12 lg:left-[15rem] w-1/4"></Image>
                 </motion.div>
                
                <div className="z-10 absolute md:relative -right-2 md:right-auto h-full flex items-center justify-center text-primaryBlue font-bold">

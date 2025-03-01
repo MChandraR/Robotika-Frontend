@@ -53,7 +53,7 @@ export default function Berita({bgcolor = "bg-filterBlue"}:{
         <div className={`relative px-4 py-8 ${bgcolor}`}>
         <center>
             <h2 className="text-primaryYellow font-bold text-3xl text-center w-min whitespace-nowrap border-b-4 border-primaryYellow px-16 tracking-wide">Update Terbaru</h2>
-            <div ref={ref} className="w-full grid grid-rows-[40%_40%_10%] md:grid-rows-none md:grid-cols-[33%_40%_20%] gap-[2%] h-[110vh] md:h-[70vh] mt-12 md:m-4 md:mt-12 " > 
+            <div ref={ref} className="w-full grid grid-rows-[40%_40%_10%] md:grid-rows-none md:grid-cols-[33%_40%_20%] gap-[2%] h-[110vh] md:h-[70vh] lg:h-[60vh] mt-12 md:m-4 md:mt-12 " > 
               {/* Update utama */}
               <motion.div 
               initial={{opacity : 0, scale : 0}}
@@ -76,7 +76,7 @@ export default function Berita({bgcolor = "bg-filterBlue"}:{
                               <IoCalendar/>
                               <h2 className="text-[.7rem] font-bold">{new Date(postData?.[idx].date??"").toUTCString()}</h2>
                           </div>
-                          <h2 className="font-bold text-left tracking-wider text-xl h-[5rem] overflow-hidden">{postData?.[idx].title}</h2>
+                          <h2 className="font-bold text-left tracking-wider text-xl lg:text-3xl  h-[5rem] lg:h-[10rem] overflow-hidden">{postData?.[idx].title}</h2>
                           </div>
                       </div>
                   </motion.div>
@@ -111,7 +111,7 @@ export default function Berita({bgcolor = "bg-filterBlue"}:{
                                   <IoCalendar className="text-white text-[.5rem]"/>
                                   <span className="text-white text-[.5rem] font-bold">{new Date(item.date??"").toUTCString()}</span>
                                   </div>
-                                  <h2 className="text-white font-bold text-left tracking-wider text-[.7rem] h-[3rem] overflow-hidden">{item.title}</h2>
+                                  <h2 className="text-white font-bold text-left tracking-wider text-[.7rem] lg:text-xl h-[3rem] lg:h-[5rem] overflow-hidden">{item.title}</h2>
                               </div>
                           </motion.div>
                         </Link>
