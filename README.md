@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🤖 Robotika UMRAH - Official Web Portal
+### The Digital Gateway to Maritime Robotics Innovation
 
-## Getting Started
+**Robotika UMRAH** is the official web portal for the Robotics Organization at **Universitas Maritim Raja Ali Haji**. This platform serves as a comprehensive profile to showcase our organization’s vision, elite team members, prestigious achievements, and latest updates in the field of robotics.
 
-First, run the development server:
+Built with a focus on speed, responsiveness, and manageability, this portal bridges the gap between our technical innovations and the public.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Key Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* **Dynamic Organization Profile**: A comprehensive look into the history, vision, and mission of Robotika UMRAH.
+* **Member Directory**: Showcasing the talented individuals driving our innovations.
+* **Achievement Showcase**: A dedicated space for awards and competition milestones.
+* **Integrated News/Blog**: Stay updated with the latest news and technology trends from our team.
+* **Powerful Admin Dashboard**: A secure, dynamic back-office allowing admins to manage content effortlessly without touching the code.
+* **Fully Responsive Design**: Optimized for a seamless experience across mobile, tablet, and desktop devices.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠 Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+| Component | Technology |
+| :--- | :--- |
+| **Framework** | Next.js (App Router) |
+| **Styling** | Tailwind CSS |
+| **Animations** | Framer Motion |
+| **State Management** | React Hooks / Context API |
+| **Language** | JavaScript / TypeScript |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🧠 Why Next.js?
+We chose **Next.js** to ensure the organization profile is not only visually stunning but also technically superior:
+1.  **Performance**: Server-Side Rendering (SSR) and Static Site Generation (SSG) for lightning-fast load times.
+2.  **SEO Friendly**: Optimized for search engines so our achievements are easily discoverable.
+3.  **Scalability**: A robust architecture that can grow as the organization expands its features.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📱 Interface Preview
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+---
+
+## 🔧 Getting Started
+
+### Prerequisites
+* Node.js (Latest LTS version)
+* npm / yarn / pnpm
+
+### Installation
+1.  Clone the repository:
+    ```bash
+    git clone [https://github.com/MChandraR/Robotika-Frontend.git](https://github.com/MChandraR/Robotika-Frontend.git)
+    ```
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+3.  Set up environment variables:
+    * Create a `.env.local` file and add your backend API URL.
+4.  Run the development server:
+    ```bash
+    npm run dev
+    ```
+5.  Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+---
+
+## 🍎 Organization Context
+This website represents **Robotika UMRAH**, an organization at Universitas Maritim Raja Ali Haji (Tanjungpinang, Riau Islands). Our focus is on maritime-based robotics and fostering innovation in the Riau Islands region.
+
+---
+
+## 🤝 Contributing
+We welcome contributions to improve the portal's UI/UX or performance. Please open an issue or submit a pull request for any enhancements.
+
+**Developed with 💙 by [MChandraR](https://github.com/MChandraR) (Muhammad Chandra Ramadhan)**
